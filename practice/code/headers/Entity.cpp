@@ -8,9 +8,10 @@ namespace example
 		transform.setOrigin(pos);
 		initial_position = pos;
 	}
+
 	const btVector3 & Entity::get_current_position() const
 	{
-		//insert return statement here
+		return transform.getOrigin();
 	}
 }
 

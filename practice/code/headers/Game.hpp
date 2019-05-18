@@ -4,6 +4,7 @@
 #define GAME_BULLET_HEADER
 
 #include "Entity.hpp"
+#include <SFML/Graphics.hpp>
 
 namespace example
 {
@@ -21,6 +22,7 @@ namespace example
 	public:
 
 		Game(const char * windows_title, int width, int height);
+
 
 	public:
 

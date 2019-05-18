@@ -1,23 +1,16 @@
 
 
 #include "Game.hpp"
-#include "Entity.hpp"
-
 
 namespace example
 {
 	Game::Game(const char * windows_title, int width, int height)
 		:window(sf::VideoMode(width, height), windows_title,
 			sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(32)),
-			scene(nullptr)
+			scene(new Scene(window.getSize().x, window.getSize().y, 10.f))
 	{
-		//Listener
-
-		scene = new Scene(window.getSize().x, window.getSize().y, 10.f);
 		
 		window.setFramerateLimit(60);
-
-
 
 	}
 	void Game::init()
@@ -38,15 +31,16 @@ namespace example
 		do
 		{
 			time = timer.getElapsedTime();
-
+			
 			scene->update(deltaTime.asSeconds());
 
-			window.clear(sf::Color(200, 210, 210));
+			
+			window.clear();
 			render();
 			window.display();
 
 			event_handler();
-
+			
 			deltaTime = time - last_time;
 			last_time = time;
 

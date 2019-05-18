@@ -8,7 +8,8 @@
 #include <map>
 
 #include <SFML/Graphics.hpp>
-#include <btBulletDynamicsCommon.h>
+
+#include "World.hpp"
 
 using namespace std;
 
@@ -32,13 +33,7 @@ namespace example
 		bool have_to_reset;
 
 		Game * game;
-
-		btDefaultCollisionConfiguration collisionConfiguration;
-		btCollisionDispatcher collisionDispatcher;
-		btDbvtBroadphase overlappingPairCache;
-		btSequentialImpulseConstraintSolver constraintSolver;
-
-		btDiscreteDynamicsWorld world;
+		World * world;
 
 	public:
 
@@ -52,7 +47,7 @@ namespace example
 
 	public:
 
-		btDiscreteDynamicsWorld & get_world() { return world; }
+		World & get_world() { return *world; }
 
 		int get_width() { return width; }
 
