@@ -33,6 +33,11 @@ namespace example
 
 		Game * game;
 
+		btDefaultCollisionConfiguration collisionConfiguration;
+		btCollisionDispatcher collisionDispatcher;
+		btDbvtBroadphase overlappingPairCache;
+		btSequentialImpulseConstraintSolver constraintSolver;
+
 		btDiscreteDynamicsWorld world;
 
 	public:

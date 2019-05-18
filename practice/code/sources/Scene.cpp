@@ -8,7 +8,15 @@ namespace example
 {
 	Scene::Scene(int width, int height, float gravity)
 		:width(width), height(height), gravity(gravity),
-		game(nullptr)
+		game(nullptr),
+		collisionDispatcher(&collisionConfiguration),
+		world
+		(
+			&collisionDispatcher,
+			&overlappingPairCache,
+			&constraintSolver,
+			&collisionConfiguration
+		)
 	{
 		have_to_reset = false;
 	}
@@ -30,6 +38,8 @@ namespace example
 		if (have_to_reset) reset();
 
 		world.stepSimulation(deltaTime);
+
+
 	}
 
 	void Scene::render(sf::RenderWindow & renderer)
