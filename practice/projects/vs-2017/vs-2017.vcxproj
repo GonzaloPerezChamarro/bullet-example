@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\headers\Entity.cpp" />
+    <ClCompile Include="..\..\code\sources\Cube.cpp" />
     <ClCompile Include="..\..\code\sources\Game.cpp" />
     <ClCompile Include="..\..\code\sources\main.cpp" />
     <ClCompile Include="..\..\code\sources\Rigidbody.cpp" />

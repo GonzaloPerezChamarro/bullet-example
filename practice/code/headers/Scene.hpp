@@ -7,7 +7,10 @@
 #include <string>
 #include <map>
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+
+#include <Render_Node.hpp>
+#include <Light.hpp>
 
 #include "World.hpp"
 
@@ -19,6 +22,11 @@ namespace example
 	class Game;
 	class Scene
 	{
+	private:
+		std::shared_ptr<glt::Render_Node> renderer;
+		std::shared_ptr<glt::Camera> camera;
+		std::shared_ptr<glt::Light> light;
+
 	private:
 		typedef shared_ptr<Entity> sh_Entity;
 
@@ -43,7 +51,7 @@ namespace example
 	public:
 		void update(float deltaTime);
 
-		void render(sf::RenderWindow & renderer);
+		void render();
 
 	public:
 
@@ -65,8 +73,6 @@ namespace example
 		void reset();
 
 	};
-
-
 
 }
 

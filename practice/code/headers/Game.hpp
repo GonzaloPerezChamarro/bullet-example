@@ -15,7 +15,7 @@ namespace example
 
 	private:
 
-		sf::RenderWindow window;
+		sf::Window window;
 
 		Scene * scene;
 

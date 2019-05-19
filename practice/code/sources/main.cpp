@@ -1,14 +1,15 @@
 
 
-
-#include <iostream>
+#include "Game.hpp"
 
 using namespace std;
-
+using namespace example;
 
 int main()
 {
-	cout << "Holi" << endl;
+	Game * game = new Game("Bullet!!!!", 1920, 1080);
+
+	game->init();
 
 	return 0;
 }

@@ -8,9 +8,15 @@ namespace example
 {
 	Scene::Scene(int width, int height, float gravity)
 		:width(width), height(height), gravity(gravity),
-		game(nullptr), world(new World())
+		game(nullptr), world(new World()), renderer(new glt::Render_Node),
+		camera(new glt::Camera(20.f, 1.f, 50.f, 1.f)), light(new glt::Light)
 	{
 		have_to_reset = false;
+
+		renderer->add("camera", camera);
+		renderer->add("light", light);
+
+		
 	}
 
 	Scene::~Scene()
@@ -33,13 +39,13 @@ namespace example
 
 	}
 
-	void Scene::render(sf::RenderWindow & renderer)
+	void Scene::render()
 	{
 		for (auto it = entities_map.begin(), end = entities_map.end();
 			it != end;
 			++it)
 		{
-			it->second->render(renderer);
+			//it->second->render(renderer);
 		}
 	}
 

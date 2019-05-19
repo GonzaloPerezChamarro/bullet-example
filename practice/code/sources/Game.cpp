@@ -9,8 +9,17 @@ namespace example
 			sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(32)),
 			scene(new Scene(window.getSize().x, window.getSize().y, 10.f))
 	{
+		if (!glt::initialize_opengl_extensions())
+		{
+			assert(false);
+			return ;
+		}
+
 		
 		window.setFramerateLimit(60);
+
+		glClearColor(0.2f, 0.2f, 0.2f, 1.f);
+
 
 	}
 	void Game::init()
@@ -35,7 +44,8 @@ namespace example
 			scene->update(deltaTime.asSeconds());
 
 			
-			window.clear();
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 			render();
 			window.display();
 
@@ -48,7 +58,7 @@ namespace example
 	}
 	void Game::render()
 	{
-		scene->render(window);
+		scene->render();
 
 	}
 	void Game::reset()

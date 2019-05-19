@@ -7,6 +7,7 @@
 
 #include "Scene.hpp"
 #include "Rigidbody.hpp"
+#include "SFML/Graphics.hpp"
 
 #include <btBulletDynamicsCommon.h>
 
@@ -29,10 +30,12 @@ namespace example
 
 
 	public:
-		Entity(Scene * scene, btVector3 pos)
+		Entity(Scene * scene, btVector3 pos, btQuaternion rot)
 			:scene(scene), initial_position(pos)
 		{
 			transform.setOrigin(initial_position);
+			transform.setRotation(rot);
+			initial_position = pos;
 		}
 
 		virtual ~Entity() {}
@@ -50,7 +53,7 @@ namespace example
 			return bodies[name];
 		}
 
-		const btVector3 & get_current_position() const;
+		const btVector3 & get_current_position() const{ return transform.getOrigin(); }
 
 		Scene * get_scene() const { return scene; }
 	};
