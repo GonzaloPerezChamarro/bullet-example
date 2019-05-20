@@ -6,7 +6,7 @@ namespace example
 {
 	Game::Game(const char * windows_title, int width, int height)
 		:window(sf::VideoMode(width, height), windows_title,
-			sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(32)),
+			sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(24, 0, 0, 3, 2, sf::ContextSettings::Core)),
 			scene(new Scene(window.getSize().x, window.getSize().y, 10.f))
 	{
 		if (!glt::initialize_opengl_extensions())
@@ -15,16 +15,17 @@ namespace example
 			return ;
 		}
 
+		glViewport(0, 0, width, height);
 		
 		window.setFramerateLimit(60);
+		window.setVerticalSyncEnabled(true);
 
-		glClearColor(0.2f, 0.2f, 0.2f, 1.f);
+		glClearColor(0.2f, 0.2f, 0.3f, 1.f);
 
 
 	}
 	void Game::init()
 	{
-		generate_world();
 		update();
 	}
 
@@ -56,6 +57,7 @@ namespace example
 
 		} while (window.isOpen());
 	}
+
 	void Game::render()
 	{
 		scene->render();
@@ -80,9 +82,5 @@ namespace example
 				break;
 			}
 		}
-	}
-	void Game::generate_world()
-	{
-		//Generando......
 	}
 }

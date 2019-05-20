@@ -35,10 +35,6 @@ namespace example
 		void reset();
 
 		void event_handler();
-
-	private:
-
-		void generate_world();
 	};
 }
 

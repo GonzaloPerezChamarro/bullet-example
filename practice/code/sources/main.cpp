@@ -7,7 +7,7 @@ using namespace example;
 
 int main()
 {
-	Game * game = new Game("Bullet!!!!", 1920, 1080);
+	Game * game = new Game("Bullet!!!!", 1024, 720);
 
 	game->init();
 

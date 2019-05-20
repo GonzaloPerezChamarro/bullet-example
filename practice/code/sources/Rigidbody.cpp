@@ -10,12 +10,20 @@ namespace example
 	{
 		shape->calculateLocalInertia(mass, inertia);
 
+		btTransform tr;
+
+		tr.setIdentity();
+		tr.setOrigin(initial_position);
+		tr.setRotation(initial_rotation);
+
+		state.reset(new btDefaultMotionState(tr));
+
 		if (type == STATIC)
 		{
 			btRigidBody::btRigidBodyConstructionInfo info(0, state.get(), shape.get());
 			rigidbody.reset(new btRigidBody(info));
 		}
-		else if (type == DYNAMIC)
+		else
 		{
 			btRigidBody::btRigidBodyConstructionInfo info(mass, state.get(), shape.get(), inertia);
 			rigidbody.reset(new btRigidBody(info));

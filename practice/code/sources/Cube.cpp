@@ -12,20 +12,18 @@ namespace example
 		:Entity(scene, pos, rot)
 	{
 
-		std::shared_ptr<Rigidbody> cube(new Rigidbody(pos, rot, std::shared_ptr<btBoxShape>(new btBoxShape(btVector3(width, height, length))), Rigidbody::Type::STATIC));
+		std::shared_ptr<Rigidbody> body(new Rigidbody(pos, rot, std::shared_ptr<btBoxShape>(new btBoxShape(btVector3(width, height, length))), Rigidbody::Type::STATIC));
 		
-		cube->get_rigidbody()->setLinearFactor(btVector3(0.f, 0.f, 1.f));
-		cube->get_rigidbody()->setAngularFactor(btVector3(0.f, 0.f, 0.f));
+		add_model("box", body, "../../assets/cube.obj");
 
 		
-		bodies["body"] = cube;
 	}
 
 	void Cube::update(float deltaTime)
 	{
+		Entity::update(deltaTime);
 	}
-
-	void Cube::render(sf::RenderWindow & renderer)
+	void Cube::reset()
 	{
 	}
 }

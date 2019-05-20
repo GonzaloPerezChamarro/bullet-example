@@ -41,7 +41,7 @@ namespace example
 		bool have_to_reset;
 
 		Game * game;
-		World * world;
+		std::shared_ptr<World> world;
 
 	public:
 
@@ -68,6 +68,8 @@ namespace example
 		void add_entity(const std::string name, const sh_Entity & entity);
 
 		Entity * get_entity_by_name(const std::string & name);
+
+		std::shared_ptr<glt::Render_Node> get_renderer() const { return renderer; }
 
 	private:
 		void reset();

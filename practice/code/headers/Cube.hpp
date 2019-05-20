@@ -17,7 +17,7 @@ namespace example
 
 		void update(float deltaTime) override;
 
-		void render(sf::RenderWindow & renderer) override;
+		void reset() override;
 	};
 }
 #endif
