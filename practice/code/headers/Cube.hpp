@@ -12,7 +12,7 @@ namespace example
 	private:
 
 	public:
-		Cube(Scene * scene, btVector3 pos, btQuaternion rot, unsigned width, unsigned height, unsigned length);
+		Cube(Scene * scene, btVector3 pos, btQuaternion rot);
 
 
 		void update(float deltaTime) override;

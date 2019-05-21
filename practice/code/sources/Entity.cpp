@@ -1,5 +1,4 @@
 
-
 #include "Entity.hpp"
 
 
@@ -10,9 +9,10 @@ namespace example
 		for (auto & model : models)
 		{
 			btTransform tr;
-			glm::mat4 graphics_transform;
 
 			model.second.body->get_rigidbody()->getMotionState()->getWorldTransform(tr);
+
+			glm::mat4 graphics_transform;
 
 			tr.getOpenGLMatrix(glm::value_ptr(graphics_transform));
 
@@ -23,11 +23,11 @@ namespace example
 
 	void Entity::add_model(const std::string & name, std::shared_ptr<Rigidbody>& rb, const std::string & path, float scale)
 	{
-		std::shared_ptr<glt::Model> new_model(new glt::Model_Obj(path));
+		std::shared_ptr<glt::Model> n(new glt::Model_Obj(path));
 
-		models[name] = Model_Group{ scale, new_model, rb };
+		models[name] = Model_Group{ scale, n, rb };
 
-		scene->get_renderer()->add(name, new_model);
+		scene->get_renderer()->add(name, n);
 		scene->get_world().add_rigidbody(rb);
 		
 	}

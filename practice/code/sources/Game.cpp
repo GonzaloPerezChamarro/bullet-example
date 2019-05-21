@@ -11,9 +11,9 @@ namespace example
 	{
 		if (!glt::initialize_opengl_extensions())
 		{
-			assert(false);
-			return ;
+			exit(-1);
 		}
+		scene->create_scene();
 
 		glViewport(0, 0, width, height);
 		

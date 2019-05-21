@@ -8,11 +8,11 @@
 
 namespace example
 {
-	Cube::Cube(Scene * scene, btVector3 pos, btQuaternion rot, unsigned width, unsigned height, unsigned length)
+	Cube::Cube(Scene * scene, btVector3 pos, btQuaternion rot)
 		:Entity(scene, pos, rot)
 	{
 
-		std::shared_ptr<Rigidbody> body(new Rigidbody(pos, rot, std::shared_ptr<btBoxShape>(new btBoxShape(btVector3(width, height, length))), Rigidbody::Type::STATIC));
+		std::shared_ptr<Rigidbody> body(new Rigidbody(pos, rot, std::shared_ptr<btBoxShape>(new btBoxShape(btVector3(0.5, 0.5, 0.5))), Rigidbody::Type::STATIC));
 		
 		add_model("box", body, "../../assets/cube.obj");
 

@@ -15,16 +15,6 @@ namespace example
 	{
 		have_to_reset = false;
 
-		renderer->add("camera", camera);
-		renderer->add("light", light);
-
-		renderer->get("light")->translate(glt::Vector3(10.f, 10.f, 10.f));
-		renderer->get("camera")->translate(glt::Vector3(0.f, 0.f, 5.f));
-
-		renderer->get_active_camera()->set_aspect_ratio(float(width) / height);
-
-		std::shared_ptr<Sphere> sphere(new Sphere(this, btVector3(0.f, 10.f, 0.f), btQuaternion::getIdentity()));
-		entities_map["sphere"] = sphere;
 	}
 
 	Scene::~Scene()
@@ -50,6 +40,24 @@ namespace example
 	void Scene::render()
 	{
 		renderer->render();
+	}
+
+	void Scene::create_scene()
+	{
+
+		renderer->add("camera", camera);
+		renderer->add("light", light);
+
+		renderer->get("light")->translate(glt::Vector3(10.f, 10.f, 10.f));
+		renderer->get("camera")->translate(glt::Vector3(0.f, 0.f, 5.f));
+
+		renderer->get_active_camera()->set_aspect_ratio(float(width) / height);
+
+		std::shared_ptr<Sphere> sphere(new Sphere(this, btVector3(0.f, 2.f, 0.f), btQuaternion::getIdentity()));
+		entities_map["sphere"] = sphere;
+
+		std::shared_ptr<Cube> cube(new Cube(this, btVector3(0.f, -2.f, 0.f), btQuaternion::getIdentity()));
+		entities_map["cube"] = cube;
 	}
 
 	void Scene::add_entity(const std::string name, const sh_Entity & entity)

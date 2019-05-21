@@ -55,6 +55,8 @@ namespace example
 
 	public:
 
+		void create_scene();
+
 		World & get_world() { return *world; }
 
 		int get_width() { return width; }
