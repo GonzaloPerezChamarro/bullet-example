@@ -27,9 +27,24 @@ namespace example
 
 		models[name] = Model_Group{ scale, n, rb };
 
-		scene->get_renderer()->add(name, n);
+
+		for (int i = 0; ; ++i)
+		{
+			if (scene->get_renderer()->get(name + char(i)) == nullptr)
+			{
+				scene->get_renderer()->add(name + char(i), n);
+				break;
+			}
+		}
 		scene->get_world().add_rigidbody(rb);
 		
+	}
+
+	void Entity::add_sensor(const std::string & name, std::shared_ptr<Sensor>& sensor)
+	{
+
+		sensors[name] = sensor;
+		scene->get_world().add_sensor(sensor);
 	}
 
 }

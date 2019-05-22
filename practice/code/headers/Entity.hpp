@@ -9,6 +9,7 @@
 
 #include "Scene.hpp"
 #include "Rigidbody.hpp"
+#include "Sensor.hpp"
 #include "SFML/Graphics.hpp"
 
 #include <btBulletDynamicsCommon.h>
@@ -65,11 +66,18 @@ namespace example
 			return models[name].body;
 		}
 
+		std::shared_ptr<glt::Model> get_mesh(const std::string & name)
+		{
+			return models[name].mesh;
+		}
+
 		const btVector3 & get_current_position() const{ return transform.getOrigin(); }
 
 		Scene * get_scene() const { return scene; }
 
 		void add_model(const std::string & name, std::shared_ptr<Rigidbody> & rb, const std::string & path, float scale = 1.f);
+
+		void add_sensor(const std::string & name, std::shared_ptr<Sensor> & sensor);
 	};
 }
 

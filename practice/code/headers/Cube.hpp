@@ -12,7 +12,7 @@ namespace example
 	private:
 
 	public:
-		Cube(Scene * scene, btVector3 pos, btQuaternion rot);
+		Cube(Scene * scene, btVector3 pos, btQuaternion rot, Rigidbody::Type type = Rigidbody::Type::STATIC);
 
 
 		void update(float deltaTime) override;

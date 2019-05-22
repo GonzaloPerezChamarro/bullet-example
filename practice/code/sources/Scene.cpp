@@ -46,18 +46,55 @@ namespace example
 	{
 
 		renderer->add("camera", camera);
-		renderer->add("light", light);
+		renderer->add("light", light); 
 
 		renderer->get("light")->translate(glt::Vector3(10.f, 10.f, 10.f));
 		renderer->get("camera")->translate(glt::Vector3(0.f, 0.f, 5.f));
 
 		renderer->get_active_camera()->set_aspect_ratio(float(width) / height);
 
-		std::shared_ptr<Sphere> sphere(new Sphere(this, btVector3(0.f, 2.f, 0.f), btQuaternion::getIdentity()));
-		entities_map["sphere"] = sphere;
 
-		std::shared_ptr<Cube> cube(new Cube(this, btVector3(0.f, -2.f, 0.f), btQuaternion::getIdentity()));
-		entities_map["cube"] = cube;
+		{
+			//Derecha
+			std::shared_ptr<Cube> cubeDer(new Cube(this, btVector3(5.f, -2.f, 0.f), btQuaternion::getIdentity()));
+			entities_map["cubeDer"] = cubeDer;
+
+			std::shared_ptr<Cube> cubeDerA(new Cube(this, btVector3(5.f, -2.f, -1.f), btQuaternion::getIdentity()));
+			entities_map["cubeDerA"] = cubeDerA;
+
+			std::shared_ptr<Cube> cubeDerB(new Cube(this, btVector3(5.f, -2.f, -2.f), btQuaternion::getIdentity()));
+			entities_map["cubeDerB"] = cubeDerB;
+
+			//Izquierda
+			std::shared_ptr<Cube> cubeIzq(new Cube(this, btVector3(-4.f, -2.f, 0.f), btQuaternion::getIdentity()));
+			entities_map["cubeIzq"] = cubeIzq;
+
+			std::shared_ptr<Cube> cubeIzqA(new Cube(this, btVector3(-4.f, -2.f, -1.f), btQuaternion::getIdentity()));
+			entities_map["cubeIzqA"] = cubeIzqA;
+
+			std::shared_ptr<Cube> cubeIzqB(new Cube(this, btVector3(-4.f, -2.f, -2.f), btQuaternion::getIdentity()));
+			entities_map["cubeIzqB"] = cubeIzqB;
+
+			//Centro 1
+			std::shared_ptr<Cube> cubeCentro(new Cube(this, btVector3(0.f, -2.f, 0.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro"] = cubeCentro;
+
+			std::shared_ptr<Cube> cubeCentroA(new Cube(this, btVector3(0.f, -2.f, -1.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentroA"] = cubeCentroA;
+
+			std::shared_ptr<Cube> cubeCentroB(new Cube(this, btVector3(0.f, -2.f, -2.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentroB"] = cubeCentroB;
+
+			//Centro 2
+			std::shared_ptr<Cube> cubeCentro1(new Cube(this, btVector3(1.f, -2.f, 0.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro1"] = cubeCentro1;
+
+			std::shared_ptr<Cube> cubeCentro1A(new Cube(this, btVector3(1.f, -2.f, -1.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro1A"] = cubeCentro1A;
+
+			std::shared_ptr<Cube> cubeCentro1B(new Cube(this, btVector3(1.f, -2.f, -2.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro1B"] = cubeCentro1B;
+		}
 	}
 
 	void Scene::add_entity(const std::string name, const sh_Entity & entity)

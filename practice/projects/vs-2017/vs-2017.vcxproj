@@ -143,13 +143,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\code\sources\Catapult.cpp" />
     <ClCompile Include="..\..\code\sources\Cube.cpp" />
     <ClCompile Include="..\..\code\sources\Entity.cpp" />
     <ClCompile Include="..\..\code\sources\Game.cpp" />
+    <ClCompile Include="..\..\code\sources\Key.cpp" />
     <ClCompile Include="..\..\code\sources\main.cpp" />
+    <ClCompile Include="..\..\code\sources\Platform.cpp" />
     <ClCompile Include="..\..\code\sources\Rigidbody.cpp" />
     <ClCompile Include="..\..\code\sources\Scene.cpp" />
+    <ClCompile Include="..\..\code\sources\Sensor.cpp" />
     <ClCompile Include="..\..\code\sources\Sphere.cpp" />
+    <ClCompile Include="..\..\code\sources\Wall.cpp" />
     <ClCompile Include="..\..\code\sources\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +170,7 @@
     <ClInclude Include="..\..\code\headers\Scene.hpp" />
     <ClInclude Include="..\..\code\headers\Sensor.hpp" />
     <ClInclude Include="..\..\code\headers\Sphere.hpp" />
+    <ClInclude Include="..\..\code\headers\Wall.hpp" />
     <ClInclude Include="..\..\code\headers\World.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

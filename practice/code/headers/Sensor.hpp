@@ -24,7 +24,7 @@ namespace example
 			btScalar mass = 1,
 			btVector3 inertia = btVector3(0, 0, 0));
 
-		~Sensor();
+		~Sensor() {}
 
 	public:
 
