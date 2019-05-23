@@ -24,6 +24,7 @@ namespace example
 	void Entity::add_model(const std::string & name, std::shared_ptr<Rigidbody>& rb, const std::string & path, float scale)
 	{
 		std::shared_ptr<glt::Model> n(new glt::Model_Obj(path));
+		
 
 		models[name] = Model_Group{ scale, n, rb };
 
@@ -42,9 +43,8 @@ namespace example
 
 	void Entity::add_sensor(const std::string & name, std::shared_ptr<Sensor>& sensor)
 	{
-
-		sensors[name] = sensor;
 		scene->get_world().add_sensor(sensor);
+		sensors[name] = sensor;
 	}
 
 }

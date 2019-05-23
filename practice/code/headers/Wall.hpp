@@ -13,7 +13,10 @@ namespace example
 
 	public:
 
-		Wall(Scene * scene, btVector3 pos, btQuaternion rot);
+		Wall(Scene * scene, btVector3 pos, btQuaternion rot, Rigidbody::Type type);
+
+
+		void reset() override {}
 	};
 }
 #endif

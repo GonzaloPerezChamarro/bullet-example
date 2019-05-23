@@ -1,8 +1,12 @@
 
 
 #include "Scene.hpp"
+
 #include "..\headers\Cube.hpp"
 #include "Sphere.hpp"
+#include "Wall.hpp"
+#include "Key.hpp"
+#include "Door.hpp"
 
 #include "Game.hpp"
 
@@ -95,6 +99,21 @@ namespace example
 			std::shared_ptr<Cube> cubeCentro1B(new Cube(this, btVector3(1.f, -2.f, -2.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentro1B"] = cubeCentro1B;
 		}
+
+		std::shared_ptr<Wall> wall(new Wall(this, btVector3(-4.f, 0.f, -1.f), btQuaternion::getIdentity(), Rigidbody::Type::DYNAMIC));
+		entities_map["wall"] = wall;
+
+		std::shared_ptr<Wall> wallIzq(new Wall(this, btVector3(0.f, 0.f, 0.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+		entities_map["wallIzq"] = wallIzq;
+
+		std::shared_ptr<Wall> wallDer(new Wall(this, btVector3(0.f, 0.f, -2.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+		entities_map["wallDer"] = wallDer;
+
+		std::shared_ptr<Door> door(new Door(this, btVector3(0.f, 0.f, -1.f), btQuaternion::getIdentity()));
+		entities_map["door"] = door;
+
+		std::shared_ptr<Key> key(new Key(this, btVector3(1.f, -0.3f, -1.f), btQuaternion::getIdentity(), *door));
+		entities_map["key"] = key;
 	}
 
 	void Scene::add_entity(const std::string name, const sh_Entity & entity)

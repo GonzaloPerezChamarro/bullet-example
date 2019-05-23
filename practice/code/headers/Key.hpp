@@ -20,6 +20,8 @@ namespace example
 		Key(Scene * scene, btVector3 pos, btQuaternion rot, Door & door);
 
 		void update(float deltatime) override;
+
+		void reset() override {}
 	};
 }
 #endif

@@ -20,6 +20,8 @@ namespace example
 			std::shared_ptr<Rigidbody> body(new Rigidbody(pos, rot, std::shared_ptr<btBoxShape>(new btBoxShape(btVector3(0.1f, 1.0f, 1.0f))), Rigidbody::Type::STATIC));
 			add_model("door", body, "../../assets/door.obj");
 		}
+
+		void reset() override {}
 	};
 }
 #endif
