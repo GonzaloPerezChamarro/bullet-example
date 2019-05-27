@@ -17,9 +17,15 @@ namespace example
 	public:
 		Catapult(Scene * scene, btVector3 pos, btQuaternion rot);
 
+		void reset() override {}
+
+		void input(float deltaTime) override;
+
 	private:
 
 		void fire();
+
+
 	
 	};
 }

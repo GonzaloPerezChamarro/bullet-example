@@ -7,6 +7,7 @@
 #include "Wall.hpp"
 #include "Key.hpp"
 #include "Door.hpp"
+#include "Catapult.hpp"
 
 #include "Game.hpp"
 
@@ -29,6 +30,13 @@ namespace example
 	void Scene::update(float deltaTime)
 	{
 		world->update(deltaTime);
+
+		for (auto it = entities_map.begin(), end = entities_map.end();
+			it != end;
+			++it)
+		{
+			it->second->input(deltaTime);
+		}
 
 		for (auto it = entities_map.begin(), end = entities_map.end();
 			it != end;
@@ -114,6 +122,9 @@ namespace example
 
 		std::shared_ptr<Key> key(new Key(this, btVector3(1.f, -0.3f, -1.f), btQuaternion::getIdentity(), *door));
 		entities_map["key"] = key;
+
+		std::shared_ptr<Catapult> catapult(new Catapult(this, btVector3(5.f, 0.f, -1.f), btQuaternion::getIdentity()));
+		entities_map["catapult"] = catapult;
 	}
 
 	void Scene::add_entity(const std::string name, const sh_Entity & entity)

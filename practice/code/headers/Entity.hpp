@@ -59,6 +59,8 @@ namespace example
 
 		virtual void reset() = 0;
 
+		virtual void input(float deltatime) {}
+
 	public:
 
 		std::shared_ptr<Rigidbody> get_rigidbody(const std::string & name)
@@ -78,6 +80,8 @@ namespace example
 		void add_model(const std::string & name, std::shared_ptr<Rigidbody> & rb, const std::string & path, float scale = 1.f);
 
 		void add_sensor(const std::string & name, std::shared_ptr<Sensor> & sensor);
+
+		void add_joint(const std::string & name, std::shared_ptr<btHingeConstraint> & joint);
 	};
 }
 

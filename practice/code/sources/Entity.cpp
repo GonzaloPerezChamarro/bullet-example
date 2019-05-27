@@ -25,7 +25,6 @@ namespace example
 	{
 		std::shared_ptr<glt::Model> n(new glt::Model_Obj(path));
 		
-
 		models[name] = Model_Group{ scale, n, rb };
 
 
@@ -45,6 +44,12 @@ namespace example
 	{
 		scene->get_world().add_sensor(sensor);
 		sensors[name] = sensor;
+	}
+
+	void Entity::add_joint(const std::string & name, std::shared_ptr<btHingeConstraint> & joint)
+	{
+		scene->get_world().add_joint(joint);
+		joints[name] = joint;
 	}
 
 }
