@@ -9,7 +9,6 @@ namespace example
 		for (auto & model : models)
 		{
 			btTransform tr;
-
 			model.second.body->get_rigidbody()->getMotionState()->getWorldTransform(tr);
 
 			glm::mat4 graphics_transform;

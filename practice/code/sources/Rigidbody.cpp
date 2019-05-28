@@ -23,11 +23,20 @@ namespace example
 			btRigidBody::btRigidBodyConstructionInfo info(0, state.get(), shape.get());
 			rigidbody.reset(new btRigidBody(info));
 		}
-		else
+		else if(type == DYNAMIC)
 		{
 			btRigidBody::btRigidBodyConstructionInfo info(mass, state.get(), shape.get(), inertia);
 			rigidbody.reset(new btRigidBody(info));
 			rigidbody->setActivationState(DISABLE_DEACTIVATION);
+		}
+		else
+		{
+			btRigidBody::btRigidBodyConstructionInfo info(0, state.get(), shape.get());
+			rigidbody.reset(new btRigidBody(info));
+
+			rigidbody->setCollisionFlags(btCollisionObject::CF_KINEMATIC_OBJECT);
+
+;
 		}
 	}
 }

@@ -73,6 +73,11 @@ namespace example
 			return models[name].mesh;
 		}
 
+		void set_model_scale(const std::string & name, const float new_scale) 
+		{
+			models[name].scale = new_scale;
+		}
+
 		const btVector3 & get_current_position() const{ return transform.getOrigin(); }
 
 		Scene * get_scene() const { return scene; }

@@ -20,7 +20,8 @@ namespace example
 		enum Type
 		{
 			STATIC,
-			DYNAMIC
+			DYNAMIC,
+			KINEMATIC
 		};
 
 	public:

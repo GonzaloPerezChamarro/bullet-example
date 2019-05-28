@@ -16,7 +16,6 @@ namespace example
 		
 		add_model("box", body, "../../assets/cube.obj");
 
-		
 	}
 
 	void Cube::update(float deltaTime)

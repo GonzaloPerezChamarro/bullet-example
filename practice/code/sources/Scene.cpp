@@ -8,6 +8,7 @@
 #include "Key.hpp"
 #include "Door.hpp"
 #include "Catapult.hpp"
+#include "Platform.hpp"
 
 #include "Game.hpp"
 
@@ -63,32 +64,43 @@ namespace example
 		renderer->add("light", light); 
 
 		renderer->get("light")->translate(glt::Vector3(10.f, 10.f, 10.f));
-		renderer->get("camera")->translate(glt::Vector3(0.f, 0.f, 5.f));
+		renderer->get("camera")->translate(glt::Vector3(2.f, 0.f, 5.f));
 
 		renderer->get_active_camera()->set_aspect_ratio(float(width) / height);
 
-
+		//LATERALES
 		{
 			//Derecha
-			std::shared_ptr<Cube> cubeDer(new Cube(this, btVector3(5.f, -2.f, 0.f), btQuaternion::getIdentity()));
+			std::shared_ptr<Cube> cubeDer(new Cube(this, btVector3(9.f, -2.f, 0.f), btQuaternion::getIdentity()));
 			entities_map["cubeDer"] = cubeDer;
 
-			std::shared_ptr<Cube> cubeDerA(new Cube(this, btVector3(5.f, -2.f, -1.f), btQuaternion::getIdentity()));
+			std::shared_ptr<Cube> cubeDerA(new Cube(this, btVector3(9.f, -2.f, -1.f), btQuaternion::getIdentity()));
 			entities_map["cubeDerA"] = cubeDerA;
 
-			std::shared_ptr<Cube> cubeDerB(new Cube(this, btVector3(5.f, -2.f, -2.f), btQuaternion::getIdentity()));
+			std::shared_ptr<Cube> cubeDerB(new Cube(this, btVector3(9.f, -2.f, -2.f), btQuaternion::getIdentity()));
 			entities_map["cubeDerB"] = cubeDerB;
 
+			std::shared_ptr<Cube> cubeDer1(new Cube(this, btVector3(10.f, -2.f, 0.f), btQuaternion::getIdentity()));
+			entities_map["cubeDer1"] = cubeDer1;
+
+			std::shared_ptr<Cube> cubeDer1A(new Cube(this, btVector3(10.f, -2.f, -1.f), btQuaternion::getIdentity()));
+			entities_map["cubeDer1A"] = cubeDer1A;
+
+			std::shared_ptr<Cube> cubeDer1B(new Cube(this, btVector3(10.f, -2.f, -2.f), btQuaternion::getIdentity()));
+			entities_map["cubeDer1B"] = cubeDer1B;
+
 			//Izquierda
-			std::shared_ptr<Cube> cubeIzq(new Cube(this, btVector3(-4.f, -2.f, 0.f), btQuaternion::getIdentity()));
+			std::shared_ptr<Cube> cubeIzq(new Cube(this, btVector3(-5.f, -2.f, 0.f), btQuaternion::getIdentity()));
 			entities_map["cubeIzq"] = cubeIzq;
 
-			std::shared_ptr<Cube> cubeIzqA(new Cube(this, btVector3(-4.f, -2.f, -1.f), btQuaternion::getIdentity()));
+			std::shared_ptr<Cube> cubeIzqA(new Cube(this, btVector3(-5.f, -2.f, -1.f), btQuaternion::getIdentity()));
 			entities_map["cubeIzqA"] = cubeIzqA;
 
-			std::shared_ptr<Cube> cubeIzqB(new Cube(this, btVector3(-4.f, -2.f, -2.f), btQuaternion::getIdentity()));
+			std::shared_ptr<Cube> cubeIzqB(new Cube(this, btVector3(-5.f, -2.f, -2.f), btQuaternion::getIdentity()));
 			entities_map["cubeIzqB"] = cubeIzqB;
-
+		}
+		//CENTRO
+		{
 			//Centro 1
 			std::shared_ptr<Cube> cubeCentro(new Cube(this, btVector3(0.f, -2.f, 0.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentro"] = cubeCentro;
@@ -99,6 +111,12 @@ namespace example
 			std::shared_ptr<Cube> cubeCentroB(new Cube(this, btVector3(0.f, -2.f, -2.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentroB"] = cubeCentroB;
 
+			std::shared_ptr<Cube> cubeCentroC(new Cube(this, btVector3(0.f, -2.f, 1.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentroC"] = cubeCentroC;
+
+			std::shared_ptr<Cube> cubeCentroD(new Cube(this, btVector3(0.f, -2.f, -3.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentroD"] = cubeCentroD;
+
 			//Centro 2
 			std::shared_ptr<Cube> cubeCentro1(new Cube(this, btVector3(1.f, -2.f, 0.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentro1"] = cubeCentro1;
@@ -108,25 +126,112 @@ namespace example
 
 			std::shared_ptr<Cube> cubeCentro1B(new Cube(this, btVector3(1.f, -2.f, -2.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentro1B"] = cubeCentro1B;
+
+			std::shared_ptr<Cube> cubeCentro1C(new Cube(this, btVector3(1.f, -2.f, 1.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro1C"] = cubeCentro1C;
+
+			std::shared_ptr<Cube> cubeCentro1D(new Cube(this, btVector3(1.f, -2.f, -3.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro1D"] = cubeCentro1D;
+
+			//Centro3
+
+			std::shared_ptr<Cube> cubeCentro3(new Cube(this, btVector3(2.f, -2.f, 0.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro3"] = cubeCentro3;
+
+			std::shared_ptr<Cube> cubeCentro3A(new Cube(this, btVector3(2.f, -2.f, -1.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro3A"] = cubeCentro3A;
+
+			std::shared_ptr<Cube> cubeCentro3B(new Cube(this, btVector3(2.f, -2.f, -2.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro3B"] = cubeCentro3B;
+
+			std::shared_ptr<Cube> cubeCentro3C(new Cube(this, btVector3(2.f, -2.f, 1.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro3C"] = cubeCentro3C;
+
+			std::shared_ptr<Cube> cubeCentro3D(new Cube(this, btVector3(2.f, -2.f, -3.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro3D"] = cubeCentro3D;
+
+			//Centro 4
+			std::shared_ptr<Cube> cubeCentro4(new Cube(this, btVector3(3.f, -2.f, 0.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro4"] = cubeCentro4;
+
+			std::shared_ptr<Cube> cubeCentro4A(new Cube(this, btVector3(3.f, -2.f, -1.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro4A"] = cubeCentro4A;
+
+			std::shared_ptr<Cube> cubeCentro4B(new Cube(this, btVector3(3.f, -2.f, -2.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro4B"] = cubeCentro4B;
+
+			std::shared_ptr<Cube> cubeCentro4C(new Cube(this, btVector3(3.f, -2.f, 1.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro4C"] = cubeCentro4C;
+
+			std::shared_ptr<Cube> cubeCentro4D(new Cube(this, btVector3(3.f, -2.f, -3.f), btQuaternion::getIdentity()));
+			entities_map["cubeCentro4D"] = cubeCentro4D;
 		}
 
-		std::shared_ptr<Wall> wall(new Wall(this, btVector3(-4.f, 0.f, -1.f), btQuaternion::getIdentity(), Rigidbody::Type::DYNAMIC));
+		//MURO A TIRAR
+		std::shared_ptr<Wall> wall(new Wall(this, btVector3(-5.f, 0.f, -1.f), btQuaternion::getIdentity(), Rigidbody::Type::DYNAMIC));
 		entities_map["wall"] = wall;
 
-		std::shared_ptr<Wall> wallIzq(new Wall(this, btVector3(0.f, -0.3f, 1.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
-		entities_map["wallIzq"] = wallIzq;
+		//MUROS
+		{
+			std::shared_ptr<Wall> wallIzq(new Wall(this, btVector3(1.f, 0.f, 1.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			entities_map["wallIzq"] = wallIzq;
 
-		std::shared_ptr<Wall> wallDer(new Wall(this, btVector3(0.f, -0.3f, -3.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
-		entities_map["wallDer"] = wallDer;
+			std::shared_ptr<Wall> wallDer(new Wall(this, btVector3(1.f, 0.f, -3.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			entities_map["wallDer"] = wallDer;
 
-		std::shared_ptr<Door> door(new Door(this, btVector3(-0.1f, 0.f, -1.f), btQuaternion::getIdentity()));
+			std::shared_ptr<Cube> c1(new Cube(this, btVector3(1, 1.1f, 1.9), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			c1->set_model_scale("box", 0.1f);
+			entities_map["c1"] = c1;
+
+			std::shared_ptr<Cube> c2(new Cube(this, btVector3(1, 1.1f, 1.5), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			c2->set_model_scale("box", 0.1f);
+			entities_map["c2"] = c2;
+
+			std::shared_ptr<Cube> c3(new Cube(this, btVector3(1, 1.1f, 1.1), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			c3->set_model_scale("box", 0.1f);
+			entities_map["c3"] = c3;
+
+			std::shared_ptr<Cube> c4(new Cube(this, btVector3(1, 1.1f, 0.7), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			c4->set_model_scale("box", 0.1f);
+			entities_map["c4"] = c4;
+
+			std::shared_ptr<Cube> c5(new Cube(this, btVector3(1, 1.1f, 0.3), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			c5->set_model_scale("box", 0.1f);
+			entities_map["c5"] = c5;
+
+			std::shared_ptr<Cube> c1A(new Cube(this, btVector3(1, 1.1f, -3.9), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			c1A->set_model_scale("box", 0.1f);
+			entities_map["c1A"] = c1A;
+
+			std::shared_ptr<Cube> c2A(new Cube(this, btVector3(1, 1.1f, -3.5), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			c2A->set_model_scale("box", 0.1f);
+			entities_map["c2A"] = c2A;
+
+			std::shared_ptr<Cube> c3A(new Cube(this, btVector3(1, 1.1f, -3.1), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			c3A->set_model_scale("box", 0.1f);
+			entities_map["c3A"] = c3A;
+
+			std::shared_ptr<Cube> c4A(new Cube(this, btVector3(1, 1.1f, -2.7), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			c4A->set_model_scale("box", 0.1f);
+			entities_map["c4A"] = c4A;
+
+			std::shared_ptr<Cube> c5A(new Cube(this, btVector3(1, 1.1f, -2.3), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+			c5A->set_model_scale("box", 0.1f);
+			entities_map["c5A"] = c5A;
+		}
+
+		//PUERTA Y LLAVE
+		std::shared_ptr<Door> door(new Door(this, btVector3(1.f, 0.f, -1.f), btQuaternion::getIdentity()));
 		entities_map["door"] = door;
 
-		std::shared_ptr<Key> key(new Key(this, btVector3(1.f, -0.3f, -3.f), btQuaternion::getIdentity(), *door));
+		std::shared_ptr<Key> key(new Key(this, btVector3(2.1f, -0.1f, -3.f), btQuaternion::getIdentity(), *door));
 		entities_map["key"] = key;
 
-		std::shared_ptr<Catapult> catapult(new Catapult(this, btVector3(5.f, 0.f, -1.f), btQuaternion::getIdentity()));
+		std::shared_ptr<Catapult> catapult(new Catapult(this, btVector3(7.f, 0.f, 0.f), btQuaternion::getIdentity()));
 		entities_map["catapult"] = catapult;
+
+		std::shared_ptr<Platform> platform(new Platform(this, btVector3(7, -1.20f, 0), btQuaternion::getIdentity(), btVector3(5, -1.20f, 0)));
+		entities_map["platform"] = platform;
 	}
 
 	void Scene::add_entity(const std::string name, const sh_Entity & entity)
