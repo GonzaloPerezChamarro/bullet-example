@@ -76,6 +76,8 @@ namespace example
 	private:
 		void reset();
 
+		void input(float deltaTime);
+
 	};
 
 }

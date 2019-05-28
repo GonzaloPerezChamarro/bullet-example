@@ -45,6 +45,8 @@ namespace example
 			it->second->update(deltaTime);
 		}
 
+		input(deltaTime);
+
 		if (have_to_reset) reset();
 
 	}
@@ -111,16 +113,16 @@ namespace example
 		std::shared_ptr<Wall> wall(new Wall(this, btVector3(-4.f, 0.f, -1.f), btQuaternion::getIdentity(), Rigidbody::Type::DYNAMIC));
 		entities_map["wall"] = wall;
 
-		std::shared_ptr<Wall> wallIzq(new Wall(this, btVector3(0.f, 0.f, 0.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+		std::shared_ptr<Wall> wallIzq(new Wall(this, btVector3(0.f, -0.3f, 1.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
 		entities_map["wallIzq"] = wallIzq;
 
-		std::shared_ptr<Wall> wallDer(new Wall(this, btVector3(0.f, 0.f, -2.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
+		std::shared_ptr<Wall> wallDer(new Wall(this, btVector3(0.f, -0.3f, -3.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
 		entities_map["wallDer"] = wallDer;
 
-		std::shared_ptr<Door> door(new Door(this, btVector3(0.f, 0.f, -1.f), btQuaternion::getIdentity()));
+		std::shared_ptr<Door> door(new Door(this, btVector3(-0.1f, 0.f, -1.f), btQuaternion::getIdentity()));
 		entities_map["door"] = door;
 
-		std::shared_ptr<Key> key(new Key(this, btVector3(1.f, -0.3f, -1.f), btQuaternion::getIdentity(), *door));
+		std::shared_ptr<Key> key(new Key(this, btVector3(1.f, -0.3f, -3.f), btQuaternion::getIdentity(), *door));
 		entities_map["key"] = key;
 
 		std::shared_ptr<Catapult> catapult(new Catapult(this, btVector3(5.f, 0.f, -1.f), btQuaternion::getIdentity()));
@@ -141,5 +143,52 @@ namespace example
 	{
 		if (game) game->reset();
 		have_to_reset = false;
+	}
+
+	void Scene::input(float deltaTime)
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			renderer->get("camera")->translate(glt::Vector3(0.f, 0.f, -5.f) * deltaTime);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		{
+			renderer->get("camera")->translate(glt::Vector3(0.f, 0.f, 5.f) * deltaTime);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		{
+			renderer->get("camera")->translate(glt::Vector3(5.f, 0.f, 0.f) * deltaTime);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			renderer->get("camera")->translate(glt::Vector3(-5.f, 0.f, 0.f) * deltaTime);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
+		{
+			renderer->get("camera")->translate(glt::Vector3(0.f, 5.f, 0.f) * deltaTime);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
+		{
+			renderer->get("camera")->translate(glt::Vector3(0.f, -5.f, 0.f) * deltaTime);
+		}
+
+		static float rotation = 0;
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)) // derecha
+		{
+			rotation += deltaTime * 5;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) // izquierda
+		{
+			rotation -= deltaTime * 5;
+		}
+		else
+		{
+			rotation = 0;
+		}
+
+		renderer->get("camera")->rotate_around_y(glm::radians(rotation));
 	}
 }
