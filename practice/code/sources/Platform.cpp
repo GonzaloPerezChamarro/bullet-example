@@ -29,15 +29,6 @@ namespace example
 		
 
 		check_sensor();
-		//OLD
-		//if (was_object)
-		//{
-		//	current_time += deltatime;
-		//	if (current_time >= delay)
-		//	{
-		//		set_have_to_move(true);
-		//	}
-		//}
 
 		if (was_object)
 		{
@@ -59,7 +50,6 @@ namespace example
 	{
 		if (!near_equals(models["body"].body->get_rigidbody()->getWorldTransform().getOrigin(), initial_position, 0.01f))
 		{
-			//models["body"].body->get_rigidbody()->getWorldTransform().getOrigin() += -direction * speed * deltaTime;
 			models["body"].body->get_rigidbody()->setLinearVelocity(-direction * speed);
 
 			sensors["sensor"]->get_sensor()->getWorldTransform().setOrigin(models["body"].body->get_rigidbody()->getWorldTransform().getOrigin() + btVector3(0, 0.3, 0));
@@ -79,7 +69,6 @@ namespace example
 	{
 		if (!near_equals(models["body"].body->get_rigidbody()->getWorldTransform().getOrigin(), target, 0.01f))
 		{
-			//models["body"].body->get_rigidbody()->getWorldTransform().getOrigin() += direction * speed * deltaTime;
 			models["body"].body->get_rigidbody()->setLinearVelocity(direction * speed);
 
 			sensors["sensor"]->get_sensor()->getWorldTransform().setOrigin(models["body"].body->get_rigidbody()->getWorldTransform().getOrigin() + btVector3(0, 0.3, 0));

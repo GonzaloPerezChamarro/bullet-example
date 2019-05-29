@@ -87,6 +87,12 @@ namespace example
 		void add_sensor(const std::string & name, std::shared_ptr<Sensor> & sensor);
 
 		void add_joint(const std::string & name, std::shared_ptr<btHingeConstraint> & joint);
+
+		bool near_equals(btVector3 vec1, btVector3 vec2, float tolerance)
+		{
+			float offset = abs(vec1.getX() - vec2.getX()) + abs(vec1.getY() - vec2.getY()) + abs(vec1.getZ() - vec2.getZ());
+			return offset < tolerance;
+		}
 	};
 }
 

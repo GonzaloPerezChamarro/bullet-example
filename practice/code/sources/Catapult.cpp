@@ -35,25 +35,25 @@ namespace example
 		std::shared_ptr<btHingeConstraint> joint1(new btHingeConstraint(* models["body"].body->get_rigidbody(), * models["wheel1"].body->get_rigidbody(),
 			btVector3(-0.4, -0.2, 0.5), btVector3(0, 0, 0),
 			btVector3(0, 0, 1), btVector3(0, 0, 1)));
-		joint1->enableAngularMotor(false, 0.f, 3.0);
+		joint1->enableAngularMotor(false, 0.f, 500);
 		add_joint("joint1", joint1);
 
 		std::shared_ptr<btHingeConstraint> joint2(new btHingeConstraint(*models["body"].body->get_rigidbody(), *models["wheel2"].body->get_rigidbody(),
 			btVector3(0.4, -0.2, 0.5), btVector3(0, 0, 0),
 			btVector3(0, 0, 1), btVector3(0, 0, 1)));
-		joint2->enableAngularMotor(false, 0.f, 3.0);
+		joint2->enableAngularMotor(false, 0.f, 500);
 		add_joint("joint2", joint2);
 
 		std::shared_ptr<btHingeConstraint> joint3(new btHingeConstraint(*models["body"].body->get_rigidbody(), *models["wheel3"].body->get_rigidbody(),
 			btVector3(-0.4, -0.2, -0.5), btVector3(0, 0, 0),
 			btVector3(0, 0, 1), btVector3(0, 0, 1)));
-		joint3->enableAngularMotor(false, 0.f, 3.0);
+		joint3->enableAngularMotor(false, 0.f, 500);
 		add_joint("joint3", joint3);
 
 		std::shared_ptr<btHingeConstraint> joint4(new btHingeConstraint(*models["body"].body->get_rigidbody(), *models["wheel4"].body->get_rigidbody(),
 			btVector3(0.4, -0.2, -0.5), btVector3(0, 0, 0),
 			btVector3(0, 0, 1), btVector3(0, 0, 1)));
-		joint4->enableAngularMotor(false, 0.f, 3.0);
+		joint4->enableAngularMotor(false, 0.f, 500);
 		add_joint("joint4", joint4);
 
 		std::shared_ptr<btHingeConstraint> joint5(new btHingeConstraint(*models["body"].body->get_rigidbody(), *models["arm"].body->get_rigidbody(),
@@ -72,23 +72,10 @@ namespace example
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
 
-			joints["joint1"]->setMotorTargetVelocity(-5.f);
-			joints["joint2"]->setMotorTargetVelocity(-5.f);
-			joints["joint3"]->setMotorTargetVelocity(-5.f);
-			joints["joint4"]->setMotorTargetVelocity(-5.f);
-			joints["joint1"]->enableMotor(true);
-			joints["joint2"]->enableMotor(true);
-			joints["joint3"]->enableMotor(true);
-			joints["joint4"]->enableMotor(true);
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		{
-
-			joints["joint1"]->setMotorTargetVelocity(5.f);
-			joints["joint2"]->setMotorTargetVelocity(-5.f);
-			joints["joint3"]->setMotorTargetVelocity(-5.f);
-			joints["joint4"]->setMotorTargetVelocity(5.f);
-
+			joints["joint1"]->setMotorTargetVelocity(-20.0);
+			joints["joint2"]->setMotorTargetVelocity(-20.0);
+			joints["joint3"]->setMotorTargetVelocity(-20.0);
+			joints["joint4"]->setMotorTargetVelocity(-20.0);
 			joints["joint1"]->enableMotor(true);
 			joints["joint2"]->enableMotor(true);
 			joints["joint3"]->enableMotor(true);
@@ -97,10 +84,23 @@ namespace example
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
 
-			joints["joint1"]->setMotorTargetVelocity(-5.f);
-			joints["joint2"]->setMotorTargetVelocity(5.f);
-			joints["joint3"]->setMotorTargetVelocity(5.f);
-			joints["joint4"]->setMotorTargetVelocity(-5.f);
+			joints["joint1"]->setMotorTargetVelocity(20.0);
+			joints["joint2"]->setMotorTargetVelocity(-20.0);
+			joints["joint3"]->setMotorTargetVelocity(-20.0);
+			joints["joint4"]->setMotorTargetVelocity(20.0);
+
+			joints["joint1"]->enableMotor(true);
+			joints["joint2"]->enableMotor(true);
+			joints["joint3"]->enableMotor(true);
+			joints["joint4"]->enableMotor(true);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+
+			joints["joint1"]->setMotorTargetVelocity(-20.0);
+			joints["joint2"]->setMotorTargetVelocity(20.0);
+			joints["joint3"]->setMotorTargetVelocity(20.0);
+			joints["joint4"]->setMotorTargetVelocity(-20.0);
 
 			joints["joint1"]->enableMotor(true);
 			joints["joint2"]->enableMotor(true);
@@ -110,10 +110,10 @@ namespace example
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
 
-			joints["joint1"]->setMotorTargetVelocity(5.f);
-			joints["joint2"]->setMotorTargetVelocity(5.f);
-			joints["joint3"]->setMotorTargetVelocity(5.f);
-			joints["joint4"]->setMotorTargetVelocity(5.f);
+			joints["joint1"]->setMotorTargetVelocity(20.0);
+			joints["joint2"]->setMotorTargetVelocity(20.0);
+			joints["joint3"]->setMotorTargetVelocity(20.0);
+			joints["joint4"]->setMotorTargetVelocity(20.0);
 
 			joints["joint1"]->enableMotor(true);
 			joints["joint2"]->enableMotor(true);

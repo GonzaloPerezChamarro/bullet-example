@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\code\headers\Door.cpp" />
     <ClCompile Include="..\..\code\sources\Catapult.cpp" />
     <ClCompile Include="..\..\code\sources\Cube.cpp" />
     <ClCompile Include="..\..\code\sources\Entity.cpp" />

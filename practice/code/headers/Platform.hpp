@@ -41,11 +41,7 @@ namespace example
 
 		void set_have_to_move(bool b);
 
-		bool near_equals(btVector3 vec1, btVector3 vec2, float tolerance)
-		{
-			float offset = abs(vec1.getX() - vec2.getX()) + abs(vec1.getY() - vec2.getY()) + abs(vec1.getZ() - vec2.getZ());
-			return offset < tolerance;
-		}
+
 
 	};
 

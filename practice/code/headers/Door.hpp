@@ -11,6 +11,9 @@ namespace example
 	class Door :public Entity
 	{
 	private:
+		bool have_to_open = false;
+
+		float speed = 5;
 
 	public:
 
@@ -21,7 +24,11 @@ namespace example
 			add_model("door", body, "../../assets/door.obj");
 		}
 
+		void update(float deltatime) override;
+
 		void reset() override {}
+
+		void open();
 	};
 }
 #endif
