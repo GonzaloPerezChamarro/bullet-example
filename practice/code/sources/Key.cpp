@@ -30,9 +30,9 @@ namespace example
 			get_mesh("key")->set_visible(false);
 			get_rigidbody("key")->get_rigidbody()->setCollisionFlags(btCollisionObject::CF_NO_CONTACT_RESPONSE);
 
-			door->open();
-			door->get_mesh("door")->set_visible(false);
 			door->get_rigidbody("door")->get_rigidbody()->setCollisionFlags(btCollisionObject::CF_NO_CONTACT_RESPONSE);
+			door->get_mesh("door")->set_visible(false);
+			
 
 		}
 	}

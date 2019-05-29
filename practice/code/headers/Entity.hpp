@@ -75,6 +75,7 @@ namespace example
 
 		void set_model_scale(const std::string & name, const float new_scale) 
 		{
+			models[name].body->get_shape()->setLocalScaling(btVector3(new_scale, new_scale, new_scale));
 			models[name].scale = new_scale;
 		}
 

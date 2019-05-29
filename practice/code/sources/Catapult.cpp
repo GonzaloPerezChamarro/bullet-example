@@ -66,6 +66,35 @@ namespace example
 
 	}
 
+	void Catapult::update(float deltatime)
+	{
+		Entity::update(deltatime);
+
+		if (have_to_fire && !is_firing)
+		{
+			current_time += deltatime;
+
+			if (current_time > 0.1f)
+			{
+				have_to_fire = false;
+				is_firing = true;
+				current_time = 0.f;
+				fire();
+
+
+			}
+		}
+
+		if (is_firing)
+		{
+			current_time += deltatime;
+			if (current_time > fire_delay)
+			{
+				is_firing = false;
+			}
+		}
+	}
+
 	void Catapult::input(float deltaTime)
 	{
 		
@@ -130,18 +159,39 @@ namespace example
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		{
-			joints["joint5"]->setMotorTargetVelocity(-10.f);
-			joints["joint5"]->enableMotor(true);
-		}
-		else
-		{
-			joints["joint5"]->enableMotor(false);
-			joints["joint5"]->setMotorTargetVelocity(0.f);
+			if (!is_firing)
+			{
+				joints["joint5"]->setMotorTargetVelocity(-10.f);
+				joints["joint5"]->enableMotor(true);
+
+				have_to_fire = true;
+				current_time = 0.f;
+			}
 
 		}
 	}
 
 	void Catapult::fire()
 	{
+		static unsigned bullet_count = 0;
+
+		btScalar tr[16];
+		models["body"].body->get_rigidbody()->getWorldTransform().getOpenGLMatrix(tr);
+		//btVector3 direction{ tr[8], tr[9] , tr[10] }; Forward vector
+		btVector3 direction{ -tr[10], tr[9] , tr[8] }; //Forward vector rotado 90 grados
+
+		btVector3 position = models["body"].body->get_rigidbody()->getWorldTransform().getOrigin() + btVector3(0, 2, 0);
+		std::shared_ptr<Rigidbody> bullet(new Rigidbody(position, btQuaternion(0, 0, 0),std::shared_ptr<btCollisionShape>(new btSphereShape(btScalar(0.1f)))));
+
+		add_model("bullet" + char(bullet_count), bullet, "../../assets/catapult_wheel.obj");
+
+		models["bullet" + char(bullet_count)].body->get_rigidbody()->applyForce(direction* force, btVector3(0, 0, 0));
+
+		joints["joint5"]->enableMotor(false);
+		joints["joint5"]->setMotorTargetVelocity(0.f);
+
+		++bullet_count;
+
+
 	}
 }

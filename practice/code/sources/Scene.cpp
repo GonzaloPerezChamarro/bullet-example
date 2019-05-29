@@ -168,7 +168,7 @@ namespace example
 		}
 
 		//MURO A TIRAR
-		std::shared_ptr<Wall> wall(new Wall(this, btVector3(-5.f, 0.f, -1.f), btQuaternion::getIdentity(), Rigidbody::Type::DYNAMIC));
+		std::shared_ptr<Wall> wall(new Wall(this, btVector3(-5.5f, 0.f, -1.f), btQuaternion::getIdentity(), Rigidbody::Type::DYNAMIC));
 		entities_map["wall"] = wall;
 
 		//MUROS
@@ -227,7 +227,7 @@ namespace example
 		std::shared_ptr<Key> key(new Key(this, btVector3(2.1f, -0.3, -3.f), btQuaternion::getIdentity(), *door));
 		entities_map["key"] = key;
 
-		std::shared_ptr<Catapult> catapult(new Catapult(this, btVector3(9.5f, 0.f, 0.f), btQuaternion::getIdentity()));
+		std::shared_ptr<Catapult> catapult(new Catapult(this, btVector3(9.f, 0.f, 0.f), btQuaternion::getIdentity()));
 		entities_map["catapult"] = catapult;
 
 		std::shared_ptr<Platform> platform(new Platform(this, btVector3(7, -1.20f, 0), btQuaternion::getIdentity(), btVector3(5, -1.20f, 0)));
