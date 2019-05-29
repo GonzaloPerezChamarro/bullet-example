@@ -17,7 +17,7 @@ namespace example
 
 		float speed = .4f;
 
-		float delay = 1.f;
+		float delay = 2.f;
 		float current_time;
 
 		bool stopped;

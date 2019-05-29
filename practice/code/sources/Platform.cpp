@@ -20,7 +20,7 @@ namespace example
 
 		add_model("body", body, "../../assets/platform.obj");
 
-		std::shared_ptr<Sensor> sensor(new Sensor(pos + btVector3(0.f, 0.3f, 0.f), rot, std::shared_ptr<btBoxShape>(new btBoxShape(btVector3(0.8f, 0.2f, 0.5f)))));
+		std::shared_ptr<Sensor> sensor(new Sensor(pos + btVector3(0.f, 0.4f, 0.f), rot, std::shared_ptr<btBoxShape>(new btBoxShape(btVector3(0.8f, 0.2f, 0.5f)))));
 		add_sensor("sensor", sensor);
 	}
 
@@ -39,13 +39,11 @@ namespace example
 		//	}
 		//}
 
-		current_time += deltatime;
-		if (current_time >= delay)
+		if (was_object)
 		{
-			if(was_object)
+			current_time += deltatime;
+			if (current_time >= delay)
 				set_have_to_move(true);
-			else
-				set_have_to_move(false);
 		}
 
 		if (have_to_move)
@@ -103,7 +101,14 @@ namespace example
 		//Movimiento....
 		size_t overlapping_objects = sensors["sensor"]->get_sensor()->getNumOverlappingObjects();
 
-		if (overlapping_objects > 0)
+		//for (int i = 0; i < overlapping_objects; ++i)
+		//{
+		//	if (sensors["sensor"]->get_sensor()->getOverlappingObject(i) == models["body"].body->get_rigidbody().get())
+		//		std::cout << "Trueeeee " << i << std::endl;
+		//}
+
+
+		if (overlapping_objects > 1)
 		{
 			if (!was_object)
 				current_time = 0.f;
