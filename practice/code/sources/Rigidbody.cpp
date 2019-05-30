@@ -8,7 +8,6 @@ namespace example
 	Rigidbody::Rigidbody(btVector3 & initial_position, btQuaternion & initial_rotation, const std::shared_ptr<btCollisionShape>& shape,Type type, btScalar mass, btVector3 inertia)
 		:shape(shape)
 	{
-		
 		shape->calculateLocalInertia(mass, inertia);
 
 		btTransform tr;
@@ -19,6 +18,7 @@ namespace example
 
 		state.reset(new btDefaultMotionState(tr));
 
+		//Composicion del rigidbody segun su tipo
 		if (type == STATIC)
 		{
 			btRigidBody::btRigidBodyConstructionInfo info(0, state.get(), shape.get());

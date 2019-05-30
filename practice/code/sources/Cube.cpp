@@ -11,7 +11,7 @@ namespace example
 	Cube::Cube(Scene * scene, btVector3 pos, btQuaternion rot, Rigidbody::Type type)
 		:Entity(scene, pos, rot)
 	{
-
+		//Creacion del cubo
 		std::shared_ptr<Rigidbody> body(new Rigidbody(pos, rot, std::shared_ptr<btBoxShape>(new btBoxShape(btVector3(1, 1, 1))), type));
 		
 		add_model("box", body, "../../assets/cube.obj");

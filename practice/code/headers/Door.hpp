@@ -1,4 +1,13 @@
-
+/**
+ * @file Door.hpp
+ * @author Gonzalo Perez Chamarro (Gonzalo1810 Github)
+ * @brief Clase puerta
+ * @version 0.1
+ * @date 2019-05-30
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 
 #ifndef DOOR_HEADER
 #define DOOR_HEADER
@@ -10,13 +19,15 @@ namespace example
 {
 	class Door :public Entity
 	{
-	private:
-		bool have_to_open = false;
-
-		float speed = 0.1f;
 
 	public:
-
+		/**
+		 * @brief Constructor de Door
+		 * 
+		 * @param scene 
+		 * @param pos Posicion inicial
+		 * @param rot Rotacion inicial
+		 */
 		Door(Scene * scene, btVector3 pos, btQuaternion rot)
 			:Entity(scene, pos, rot)
 		{

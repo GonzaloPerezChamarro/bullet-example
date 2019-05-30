@@ -64,7 +64,7 @@ namespace example
 		renderer->add("light", light); 
 
 		renderer->get("light")->translate(glt::Vector3(10.f, 10.f, 10.f));
-		renderer->get("camera")->translate(glt::Vector3(2.f, 0.f, 5.f));
+		renderer->get("camera")->translate(glt::Vector3(7.f, 0.f, 8.f));
 
 		renderer->get_active_camera()->set_aspect_ratio(float(width) / height);
 
@@ -252,6 +252,7 @@ namespace example
 
 	void Scene::input(float deltaTime)
 	{
+		//Movimiento de la camara
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
 			renderer->get("camera")->translate(glt::Vector3(0.f, 0.f, -5.f) * deltaTime);
@@ -270,6 +271,7 @@ namespace example
 			renderer->get("camera")->translate(glt::Vector3(-5.f, 0.f, 0.f) * deltaTime);
 		}
 
+		//Altura de la camara
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
 		{
 			renderer->get("camera")->translate(glt::Vector3(0.f, 5.f, 0.f) * deltaTime);
@@ -279,6 +281,7 @@ namespace example
 			renderer->get("camera")->translate(glt::Vector3(0.f, -5.f, 0.f) * deltaTime);
 		}
 
+		//Rotacion de la camara
 		static float rotation = 0;
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)) // derecha

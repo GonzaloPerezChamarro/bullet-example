@@ -9,12 +9,15 @@ namespace example
 			sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(24, 0, 0, 3, 2, sf::ContextSettings::Core)),
 			scene(new Scene(window.getSize().x, window.getSize().y, 10.f))
 	{
+		//Inicializa openGl
 		if (!glt::initialize_opengl_extensions())
 		{
 			exit(-1);
 		}
+		//Crea la escena
 		scene->create_scene();
 
+		//Creacion de pantalla
 		glViewport(0, 0, width, height);
 		
 		window.setFramerateLimit(60);
@@ -38,6 +41,7 @@ namespace example
 		auto time = timer.getElapsedTime();
 		auto deltaTime = time - last_time;
 
+		//Flujo
 		do
 		{
 			time = timer.getElapsedTime();
@@ -67,6 +71,7 @@ namespace example
 	{
 		//Reseteando
 	}
+
 	void Game::event_handler()
 	{
 		sf::Event event;
