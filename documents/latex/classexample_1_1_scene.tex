@@ -1,0 +1,222 @@
+\hypertarget{classexample_1_1_scene}{}\section{example\+::Scene Class Reference}
+\label{classexample_1_1_scene}\index{example::Scene@{example::Scene}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classexample_1_1_scene_a81318928e314f8a3dd6b1e2ab2dbe1f0}{Scene}} (int width, int height, float gravity)
+\begin{DoxyCompactList}\small\item\em Constructor de \mbox{\hyperlink{classexample_1_1_scene}{Scene}}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classexample_1_1_scene_ae1d2e6e5e3d35218f254da4af6384baa}{$\sim$\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Destructor de \mbox{\hyperlink{classexample_1_1_scene}{Scene}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classexample_1_1_scene_a0e90063ee88a217dac88ab964a7dab74}{update}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Actualiza el estado de la escena. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classexample_1_1_scene_a6e8672b9fab7eaa38bc039467dc0b66a}{render}} ()
+\begin{DoxyCompactList}\small\item\em Renderiza los elementos de la escena. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classexample_1_1_scene_ae5a6d62e493fed05e5a3271110148f07}{create\+\_\+scene}} ()
+\begin{DoxyCompactList}\small\item\em Crea la escena. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classexample_1_1_world}{World}} \& \mbox{\hyperlink{classexample_1_1_scene_a5cd57b45091b1b472dadd75810e1cc0a}{get\+\_\+world}} ()
+\begin{DoxyCompactList}\small\item\em Devuelve world. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classexample_1_1_scene_ac29a51e28d223428f95a23b48bc02710}{get\+\_\+width}} ()
+\begin{DoxyCompactList}\small\item\em Devuelve width. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classexample_1_1_scene_a3ff2b375c40031835ed6f94910f74094}{get\+\_\+height}} ()
+\begin{DoxyCompactList}\small\item\em Devuelve height. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classexample_1_1_scene_a39dd7f357b227855409fd54fc73025ce}{get\+\_\+gravity}} () const
+\begin{DoxyCompactList}\small\item\em Devuelve gravity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classexample_1_1_scene_aef7c8aa7d2e11e950af439b8e5a45e1d}{set\+\_\+have\+\_\+to\+\_\+reset}} (bool b)
+\begin{DoxyCompactList}\small\item\em Modifica el valor de have to reset. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classexample_1_1_scene_a2d5d63db1f3b6f1b2c50d4c8f9a9a214}{add\+\_\+entity}} (const std\+::string name, const sh\+\_\+\+Entity \&entity)
+\begin{DoxyCompactList}\small\item\em Añade una nueva entidad a la escena. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classexample_1_1_entity}{Entity}} $\ast$ \mbox{\hyperlink{classexample_1_1_scene_a152fd318698a4fc4fbf40d865cc7683a}{get\+\_\+entity\+\_\+by\+\_\+name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Devuelve una entidad por su nombre. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ glt\+::\+Render\+\_\+\+Node $>$ \mbox{\hyperlink{classexample_1_1_scene_a573c73dc4d15f6b08212c297c91c79e3}{get\+\_\+renderer}} () const
+\begin{DoxyCompactList}\small\item\em Devuelve renderer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classexample_1_1_scene_a81318928e314f8a3dd6b1e2ab2dbe1f0}\label{classexample_1_1_scene_a81318928e314f8a3dd6b1e2ab2dbe1f0}} 
+\index{example::Scene@{example::Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{Scene()}{Scene()}}
+{\footnotesize\ttfamily example\+::\+Scene\+::\+Scene (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{float}]{gravity }\end{DoxyParamCaption})}
+
+
+
+Constructor de \mbox{\hyperlink{classexample_1_1_scene}{Scene}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Ancho de la pantalla \\
+\hline
+{\em height} & Alto de la pantalla \\
+\hline
+{\em gravity} & Gravedad \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classexample_1_1_scene_ae1d2e6e5e3d35218f254da4af6384baa}\label{classexample_1_1_scene_ae1d2e6e5e3d35218f254da4af6384baa}} 
+\index{example::Scene@{example::Scene}!````~Scene@{$\sim$Scene}}
+\index{````~Scene@{$\sim$Scene}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{$\sim$Scene()}{~Scene()}}
+{\footnotesize\ttfamily example\+::\+Scene\+::$\sim$\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor de \mbox{\hyperlink{classexample_1_1_scene}{Scene}}. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classexample_1_1_scene_a2d5d63db1f3b6f1b2c50d4c8f9a9a214}\label{classexample_1_1_scene_a2d5d63db1f3b6f1b2c50d4c8f9a9a214}} 
+\index{example::Scene@{example::Scene}!add\_entity@{add\_entity}}
+\index{add\_entity@{add\_entity}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{add\_entity()}{add\_entity()}}
+{\footnotesize\ttfamily void example\+::\+Scene\+::add\+\_\+entity (\begin{DoxyParamCaption}\item[{const std\+::string}]{name,  }\item[{const sh\+\_\+\+Entity \&}]{entity }\end{DoxyParamCaption})}
+
+
+
+Añade una nueva entidad a la escena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre de la entidad \\
+\hline
+{\em entity} & Entidad \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classexample_1_1_scene_ae5a6d62e493fed05e5a3271110148f07}\label{classexample_1_1_scene_ae5a6d62e493fed05e5a3271110148f07}} 
+\index{example::Scene@{example::Scene}!create\_scene@{create\_scene}}
+\index{create\_scene@{create\_scene}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{create\_scene()}{create\_scene()}}
+{\footnotesize\ttfamily void example\+::\+Scene\+::create\+\_\+scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Crea la escena. 
+
+\mbox{\Hypertarget{classexample_1_1_scene_a152fd318698a4fc4fbf40d865cc7683a}\label{classexample_1_1_scene_a152fd318698a4fc4fbf40d865cc7683a}} 
+\index{example::Scene@{example::Scene}!get\_entity\_by\_name@{get\_entity\_by\_name}}
+\index{get\_entity\_by\_name@{get\_entity\_by\_name}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{get\_entity\_by\_name()}{get\_entity\_by\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classexample_1_1_entity}{Entity}} $\ast$ example\+::\+Scene\+::get\+\_\+entity\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Devuelve una entidad por su nombre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Entity$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classexample_1_1_scene_a39dd7f357b227855409fd54fc73025ce}\label{classexample_1_1_scene_a39dd7f357b227855409fd54fc73025ce}} 
+\index{example::Scene@{example::Scene}!get\_gravity@{get\_gravity}}
+\index{get\_gravity@{get\_gravity}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{get\_gravity()}{get\_gravity()}}
+{\footnotesize\ttfamily float example\+::\+Scene\+::get\+\_\+gravity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Devuelve gravity. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classexample_1_1_scene_a3ff2b375c40031835ed6f94910f74094}\label{classexample_1_1_scene_a3ff2b375c40031835ed6f94910f74094}} 
+\index{example::Scene@{example::Scene}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily int example\+::\+Scene\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Devuelve height. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classexample_1_1_scene_a573c73dc4d15f6b08212c297c91c79e3}\label{classexample_1_1_scene_a573c73dc4d15f6b08212c297c91c79e3}} 
+\index{example::Scene@{example::Scene}!get\_renderer@{get\_renderer}}
+\index{get\_renderer@{get\_renderer}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{get\_renderer()}{get\_renderer()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$glt\+::\+Render\+\_\+\+Node$>$ example\+::\+Scene\+::get\+\_\+renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Devuelve renderer. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$glt\+::\+Render\+\_\+\+Node$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classexample_1_1_scene_ac29a51e28d223428f95a23b48bc02710}\label{classexample_1_1_scene_ac29a51e28d223428f95a23b48bc02710}} 
+\index{example::Scene@{example::Scene}!get\_width@{get\_width}}
+\index{get\_width@{get\_width}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{get\_width()}{get\_width()}}
+{\footnotesize\ttfamily int example\+::\+Scene\+::get\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Devuelve width. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classexample_1_1_scene_a5cd57b45091b1b472dadd75810e1cc0a}\label{classexample_1_1_scene_a5cd57b45091b1b472dadd75810e1cc0a}} 
+\index{example::Scene@{example::Scene}!get\_world@{get\_world}}
+\index{get\_world@{get\_world}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{get\_world()}{get\_world()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classexample_1_1_world}{World}}\& example\+::\+Scene\+::get\+\_\+world (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Devuelve world. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classexample_1_1_world}{World}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classexample_1_1_scene_a6e8672b9fab7eaa38bc039467dc0b66a}\label{classexample_1_1_scene_a6e8672b9fab7eaa38bc039467dc0b66a}} 
+\index{example::Scene@{example::Scene}!render@{render}}
+\index{render@{render}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void example\+::\+Scene\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renderiza los elementos de la escena. 
+
+\mbox{\Hypertarget{classexample_1_1_scene_aef7c8aa7d2e11e950af439b8e5a45e1d}\label{classexample_1_1_scene_aef7c8aa7d2e11e950af439b8e5a45e1d}} 
+\index{example::Scene@{example::Scene}!set\_have\_to\_reset@{set\_have\_to\_reset}}
+\index{set\_have\_to\_reset@{set\_have\_to\_reset}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{set\_have\_to\_reset()}{set\_have\_to\_reset()}}
+{\footnotesize\ttfamily void example\+::\+Scene\+::set\+\_\+have\+\_\+to\+\_\+reset (\begin{DoxyParamCaption}\item[{bool}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Modifica el valor de have to reset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classexample_1_1_scene_a0e90063ee88a217dac88ab964a7dab74}\label{classexample_1_1_scene_a0e90063ee88a217dac88ab964a7dab74}} 
+\index{example::Scene@{example::Scene}!update@{update}}
+\index{update@{update}!example::Scene@{example::Scene}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void example\+::\+Scene\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
+
+
+
+Actualiza el estado de la escena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{_scene_8hpp}{Scene.\+hpp}}\item 
+sources/Scene.\+cpp\end{DoxyCompactItemize}

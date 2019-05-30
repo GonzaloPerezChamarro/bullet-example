@@ -1,0 +1,107 @@
+\hypertarget{classexample_1_1_rigidbody}{}\section{example\+::Rigidbody Class Reference}
+\label{classexample_1_1_rigidbody}\index{example::Rigidbody@{example::Rigidbody}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classexample_1_1_rigidbody_a527ee68e1748a5a6014b7fcbe9f86e3d}{Type}} \{ {\bfseries S\+T\+A\+T\+IC}, 
+{\bfseries D\+Y\+N\+A\+M\+IC}, 
+{\bfseries K\+I\+N\+E\+M\+A\+T\+IC}
+ \}
+\begin{DoxyCompactList}\small\item\em Tipo de rigidbody. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classexample_1_1_rigidbody_adbc37f0858cb94f23f0a6167ffbf34f5}{Rigidbody}} (bt\+Vector3 \&initial\+\_\+position, bt\+Quaternion \&initial\+\_\+rotation, const std\+::shared\+\_\+ptr$<$ bt\+Collision\+Shape $>$ \&shape, \mbox{\hyperlink{classexample_1_1_rigidbody_a527ee68e1748a5a6014b7fcbe9f86e3d}{Type}} type=D\+Y\+N\+A\+M\+IC, bt\+Scalar mass=1, bt\+Vector3 inertia=bt\+Vector3(0, 0, 0))
+\begin{DoxyCompactList}\small\item\em Constructor de \mbox{\hyperlink{classexample_1_1_rigidbody}{Rigidbody}}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classexample_1_1_rigidbody_a54ec639fdf123f889c35c1b14b2d1a49}{$\sim$\+Rigidbody}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor de \mbox{\hyperlink{classexample_1_1_rigidbody}{Rigidbody}}. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ bt\+Rigid\+Body $>$ \mbox{\hyperlink{classexample_1_1_rigidbody_a57f66712ecdfce778482ae59ec179177}{get\+\_\+rigidbody}} () const
+\begin{DoxyCompactList}\small\item\em Devuelve rigidbody. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ bt\+Collision\+Shape $>$ \mbox{\hyperlink{classexample_1_1_rigidbody_ad5b6d14eddbb8d0f0d2b99cff44178b9}{get\+\_\+shape}} () const
+\begin{DoxyCompactList}\small\item\em Devuelve shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classexample_1_1_rigidbody_a527ee68e1748a5a6014b7fcbe9f86e3d}\label{classexample_1_1_rigidbody_a527ee68e1748a5a6014b7fcbe9f86e3d}} 
+\index{example::Rigidbody@{example::Rigidbody}!Type@{Type}}
+\index{Type@{Type}!example::Rigidbody@{example::Rigidbody}}
+\subsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classexample_1_1_rigidbody_a527ee68e1748a5a6014b7fcbe9f86e3d}{example\+::\+Rigidbody\+::\+Type}}}
+
+
+
+Tipo de rigidbody. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classexample_1_1_rigidbody_adbc37f0858cb94f23f0a6167ffbf34f5}\label{classexample_1_1_rigidbody_adbc37f0858cb94f23f0a6167ffbf34f5}} 
+\index{example::Rigidbody@{example::Rigidbody}!Rigidbody@{Rigidbody}}
+\index{Rigidbody@{Rigidbody}!example::Rigidbody@{example::Rigidbody}}
+\subsubsection{\texorpdfstring{Rigidbody()}{Rigidbody()}}
+{\footnotesize\ttfamily example\+::\+Rigidbody\+::\+Rigidbody (\begin{DoxyParamCaption}\item[{bt\+Vector3 \&}]{initial\+\_\+position,  }\item[{bt\+Quaternion \&}]{initial\+\_\+rotation,  }\item[{const std\+::shared\+\_\+ptr$<$ bt\+Collision\+Shape $>$ \&}]{shape,  }\item[{\mbox{\hyperlink{classexample_1_1_rigidbody_a527ee68e1748a5a6014b7fcbe9f86e3d}{Type}}}]{type = {\ttfamily DYNAMIC},  }\item[{bt\+Scalar}]{mass = {\ttfamily 1},  }\item[{bt\+Vector3}]{inertia = {\ttfamily btVector3(0,~0,~0)} }\end{DoxyParamCaption})}
+
+
+
+Constructor de \mbox{\hyperlink{classexample_1_1_rigidbody}{Rigidbody}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+\_\+position} & \\
+\hline
+{\em initial\+\_\+rotation} & \\
+\hline
+{\em shape} & \\
+\hline
+{\em type} & \\
+\hline
+{\em mass} & \\
+\hline
+{\em inertia} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classexample_1_1_rigidbody_a54ec639fdf123f889c35c1b14b2d1a49}\label{classexample_1_1_rigidbody_a54ec639fdf123f889c35c1b14b2d1a49}} 
+\index{example::Rigidbody@{example::Rigidbody}!````~Rigidbody@{$\sim$Rigidbody}}
+\index{````~Rigidbody@{$\sim$Rigidbody}!example::Rigidbody@{example::Rigidbody}}
+\subsubsection{\texorpdfstring{$\sim$Rigidbody()}{~Rigidbody()}}
+{\footnotesize\ttfamily virtual example\+::\+Rigidbody\+::$\sim$\+Rigidbody (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destructor de \mbox{\hyperlink{classexample_1_1_rigidbody}{Rigidbody}}. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classexample_1_1_rigidbody_a57f66712ecdfce778482ae59ec179177}\label{classexample_1_1_rigidbody_a57f66712ecdfce778482ae59ec179177}} 
+\index{example::Rigidbody@{example::Rigidbody}!get\_rigidbody@{get\_rigidbody}}
+\index{get\_rigidbody@{get\_rigidbody}!example::Rigidbody@{example::Rigidbody}}
+\subsubsection{\texorpdfstring{get\_rigidbody()}{get\_rigidbody()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$bt\+Rigid\+Body$>$ example\+::\+Rigidbody\+::get\+\_\+rigidbody (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Devuelve rigidbody. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$bt\+Rigid\+Body$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classexample_1_1_rigidbody_ad5b6d14eddbb8d0f0d2b99cff44178b9}\label{classexample_1_1_rigidbody_ad5b6d14eddbb8d0f0d2b99cff44178b9}} 
+\index{example::Rigidbody@{example::Rigidbody}!get\_shape@{get\_shape}}
+\index{get\_shape@{get\_shape}!example::Rigidbody@{example::Rigidbody}}
+\subsubsection{\texorpdfstring{get\_shape()}{get\_shape()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$bt\+Collision\+Shape$>$ example\+::\+Rigidbody\+::get\+\_\+shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Devuelve shape. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$bt\+Collision\+Shape$>$ 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{_rigidbody_8hpp}{Rigidbody.\+hpp}}\item 
+sources/Rigidbody.\+cpp\end{DoxyCompactItemize}
