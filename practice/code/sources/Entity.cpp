@@ -1,12 +1,12 @@
 
-#include "Entity.hpp"
+#include "Entity.h"
 
 
 namespace example
 {
 	void Entity::update(float deltatime)
 	{
-		//Actualizacion del estado de los modelos por si transform 
+		// Update model's states
 		for (auto & model : models)
 		{
 			btTransform tr;
@@ -23,12 +23,12 @@ namespace example
 
 	void Entity::add_model(const std::string & name, std::shared_ptr<Rigidbody>& rb, const std::string & path, float scale)
 	{
-		//Carga del modelo
+		// Load the model
 		std::shared_ptr<glt::Model> n(new glt::Model_Obj(path));
 		
 		models[name] = Model_Group{ scale, n, rb };
 
-		//Añade el modelo a la escena
+		// Add the model to the scene
 		for (int i = 0; ; ++i)
 		{
 			if (scene->get_renderer()->get(name + char(i)) == nullptr)

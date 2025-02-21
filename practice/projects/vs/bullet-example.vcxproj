@@ -22,33 +22,34 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{65FC4977-1063-4087-8E54-DF10FA489EE8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>vs2017</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <RootNamespace>bullet-example</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>bullet-example</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -158,20 +159,19 @@
     <ClCompile Include="..\..\code\sources\World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\code\headers\Catapult.hpp" />
-    <ClInclude Include="..\..\code\headers\Cube.hpp" />
-    <ClInclude Include="..\..\code\headers\Door.hpp" />
-    <ClInclude Include="..\..\code\headers\Entity.hpp" />
-    <ClInclude Include="..\..\code\headers\Game.hpp" />
-    <ClInclude Include="..\..\code\headers\Key.hpp" />
-    <ClInclude Include="..\..\code\headers\Listener.hpp" />
-    <ClInclude Include="..\..\code\headers\Platform.hpp" />
-    <ClInclude Include="..\..\code\headers\Rigidbody.hpp" />
-    <ClInclude Include="..\..\code\headers\Scene.hpp" />
-    <ClInclude Include="..\..\code\headers\Sensor.hpp" />
-    <ClInclude Include="..\..\code\headers\Sphere.hpp" />
-    <ClInclude Include="..\..\code\headers\Wall.hpp" />
-    <ClInclude Include="..\..\code\headers\World.hpp" />
+    <ClInclude Include="..\..\code\headers\Catapult.h" />
+    <ClInclude Include="..\..\code\headers\Cube.h" />
+    <ClInclude Include="..\..\code\headers\Door.h" />
+    <ClInclude Include="..\..\code\headers\Entity.h" />
+    <ClInclude Include="..\..\code\headers\Game.h" />
+    <ClInclude Include="..\..\code\headers\Key.h" />
+    <ClInclude Include="..\..\code\headers\Platform.h" />
+    <ClInclude Include="..\..\code\headers\Rigidbody.h" />
+    <ClInclude Include="..\..\code\headers\Scene.h" />
+    <ClInclude Include="..\..\code\headers\Sensor.h" />
+    <ClInclude Include="..\..\code\headers\Sphere.h" />
+    <ClInclude Include="..\..\code\headers\Wall.h" />
+    <ClInclude Include="..\..\code\headers\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

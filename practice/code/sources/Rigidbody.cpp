@@ -1,6 +1,6 @@
 
 
-#include "Rigidbody.hpp"
+#include "Rigidbody.h"
 
 
 namespace example
@@ -18,7 +18,6 @@ namespace example
 
 		state.reset(new btDefaultMotionState(tr));
 
-		//Composicion del rigidbody segun su tipo
 		if (type == STATIC)
 		{
 			btRigidBody::btRigidBodyConstructionInfo info(0, state.get(), shape.get());
@@ -36,8 +35,6 @@ namespace example
 			rigidbody.reset(new btRigidBody(info));
 
 			rigidbody->setCollisionFlags(btCollisionObject::CF_KINEMATIC_OBJECT);
-
-;
 		}
 	}
 }

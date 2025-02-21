@@ -6,8 +6,8 @@
 #include <btBulletDynamicsCommon.h>
 #include <memory>
 
-#include "Rigidbody.hpp"
-#include "Sensor.hpp"
+#include "Rigidbody.h"
+#include "Sensor.h"
 
 namespace example
 {
@@ -23,18 +23,17 @@ namespace example
 
 	public:
 
+		/* Constructor */
 		World(const btVector3 & gravity = btVector3(0, -10, 0));
 
+		/* Destructor */
 		~World()
 		{
 			physic_world.reset();
 		}
 
 	public:
-
 		void update(float deltaTime);
-
-	public:
 		
 		void add_rigidbody(const std::shared_ptr<Rigidbody> & rigidbody);
 

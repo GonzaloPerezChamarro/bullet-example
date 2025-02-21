@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\code\sources\Catapult.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Cube.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Entity.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Game.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Key.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Platform.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Rigidbody.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Scene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Sensor.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Sphere.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Wall.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\World.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\code\headers\Catapult.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Cube.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Door.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Entity.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Game.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Key.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Platform.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Rigidbody.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Scene.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Sensor.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Sphere.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Wall.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\World.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="headers">
+      <UniqueIdentifier>{fa5cbf98-b1d2-431d-b212-7b79310eaa4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{86b5c412-e238-454c-a313-736a08d7714c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

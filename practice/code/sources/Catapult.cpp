@@ -1,5 +1,5 @@
 
-#include "Catapult.hpp"
+#include "Catapult.h"
 
 
 namespace example
@@ -7,7 +7,7 @@ namespace example
 	Catapult::Catapult(Scene * scene, btVector3 pos, btQuaternion rot)
 		:Entity(scene, pos, rot)
 	{
-		//CREACION DE LA CATAPULTA
+		// CREATION OF THE CATAPULT
 		{
 			std::shared_ptr<Rigidbody> body(new Rigidbody(pos, rot, std::shared_ptr<btBoxShape>(new btBoxShape(btVector3(0.7f, 0.1f, 0.4f)))));
 			add_model("body", body, "../../assets/catapult_body.obj");
@@ -33,7 +33,7 @@ namespace example
 		}
 
 
-		//CONSTRAINTS
+		// CONSTRAINTS
 		{
 			std::shared_ptr<btHingeConstraint> joint1(new btHingeConstraint(*models["body"].body->get_rigidbody(), *models["wheel1"].body->get_rigidbody(),
 				btVector3(-0.4, -0.2, 0.5), btVector3(0, 0, 0),
@@ -73,24 +73,22 @@ namespace example
 	{
 		Entity::update(deltatime);
 
-		//gestion tiempo de disparo
+		// Shooting management
 		if (have_to_fire && !is_firing)
 		{
 			current_time += deltatime;
 
-			//Pequeño delay para que se ejecute con la animacion
+			// Short delay to execute it with the animation
 			if (current_time > 0.1f)
 			{
 				have_to_fire = false;
 				is_firing = true;
 				current_time = 0.f;
 				fire();
-
-
 			}
 		}
 
-		//Tiempo de espera entre disparos
+		// Cooldown between shots
 		if (is_firing)
 		{
 			current_time += deltatime;
@@ -103,10 +101,9 @@ namespace example
 
 	void Catapult::input(float deltaTime)
 	{
-		//MOVIMIENTO DE LA CATAPULTA
+		// MOVEMENT
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
-
 			joints["joint1"]->setMotorTargetVelocity(-20.0);
 			joints["joint2"]->setMotorTargetVelocity(-20.0);
 			joints["joint3"]->setMotorTargetVelocity(-20.0);
@@ -118,7 +115,6 @@ namespace example
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
-
 			joints["joint1"]->setMotorTargetVelocity(20.0);
 			joints["joint2"]->setMotorTargetVelocity(-20.0);
 			joints["joint3"]->setMotorTargetVelocity(-20.0);
@@ -131,7 +127,6 @@ namespace example
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-
 			joints["joint1"]->setMotorTargetVelocity(-20.0);
 			joints["joint2"]->setMotorTargetVelocity(20.0);
 			joints["joint3"]->setMotorTargetVelocity(20.0);
@@ -144,7 +139,6 @@ namespace example
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
-
 			joints["joint1"]->setMotorTargetVelocity(20.0);
 			joints["joint2"]->setMotorTargetVelocity(20.0);
 			joints["joint3"]->setMotorTargetVelocity(20.0);
@@ -163,7 +157,7 @@ namespace example
 			joints["joint4"]->enableMotor(false);
 		}
 
-		//DISPARO
+		// SHOOT
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		{
 			if (!is_firing)
@@ -174,32 +168,31 @@ namespace example
 				have_to_fire = true;
 				current_time = 0.f;
 			}
-
 		}
 	}
 
 	void Catapult::fire()
 	{
-		//Numero de balas disparadas
+		// Shooted bullet amount
+		// NOTE: this is a demo, we only have one catapult
 		static unsigned bullet_count = 0;
 
 		btScalar tr[16];
 		models["body"].body->get_rigidbody()->getWorldTransform().getOpenGLMatrix(tr);
 		//btVector3 direction{ tr[8], tr[9] , tr[10] }; Forward vector
-		btVector3 direction{ -tr[10], tr[9] , tr[8] }; //Forward vector rotado 90 grados
+		btVector3 direction{ -tr[10], tr[9] , tr[8] }; //Forward vector rotated 90 degrees
 
-		//Creacion de la bala
+		// Create a new bullet
 		btVector3 position = models["body"].body->get_rigidbody()->getWorldTransform().getOrigin() + btVector3(0, 2, 0);
 		std::shared_ptr<Rigidbody> bullet(new Rigidbody(position, btQuaternion(0, 0, 0),std::shared_ptr<btCollisionShape>(new btSphereShape(btScalar(0.1f)))));
 		add_model("bullet" + char(bullet_count), bullet, "../../assets/catapult_wheel.obj");
 
 		models["bullet" + char(bullet_count)].body->get_rigidbody()->applyForce(direction* force, btVector3(0, 0, 0));
 
-		//Limita la velocidad del brazo para que vuelva a bajar
+		// Limits the arm speed in order to come back to default position
 		joints["joint5"]->enableMotor(false);
 		joints["joint5"]->setMotorTargetVelocity(0.f);
 
 		++bullet_count;
-
 	}
 }

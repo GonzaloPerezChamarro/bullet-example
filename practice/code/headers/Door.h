@@ -1,11 +1,11 @@
 /**
  * @file Door.hpp
  * @author Gonzalo Perez Chamarro (Gonzalo1810 Github)
- * @brief Clase puerta
- * @version 0.1
+ * @brief Class that represents a door
+ * @version 1.0
  * @date 2019-05-30
  * 
- * @copyright Copyright (c) 2019
+ * @copyright Copyright (c) 2025
  * 
  */
 
@@ -13,20 +13,18 @@
 #define DOOR_HEADER
 
 
-#include "Entity.hpp"
+#include "Entity.h"
 
 namespace example
 {
 	class Door :public Entity
 	{
-
 	public:
 		/**
-		 * @brief Constructor de Door
-		 * 
-		 * @param scene 
-		 * @param pos Posicion inicial
-		 * @param rot Rotacion inicial
+		 * @brief Constructor
+		 * @param scene Pointer to game scene
+		 * @param pos Initial position
+		 * @param rot Initial rotation
 		 */
 		Door(Scene * scene, btVector3 pos, btQuaternion rot)
 			:Entity(scene, pos, rot)
@@ -36,7 +34,6 @@ namespace example
 		}
 
 		void reset() override {}
-
 	};
 }
 #endif

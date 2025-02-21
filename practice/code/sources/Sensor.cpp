@@ -1,6 +1,6 @@
 
 
-#include "Sensor.hpp"
+#include "Sensor.h"
 
 namespace example
 {

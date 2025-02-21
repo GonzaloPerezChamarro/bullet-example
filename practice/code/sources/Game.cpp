@@ -1,6 +1,6 @@
 
 
-#include "Game.hpp"
+#include "Game.h"
 
 namespace example
 {
@@ -9,24 +9,24 @@ namespace example
 			sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(24, 0, 0, 3, 2, sf::ContextSettings::Core)),
 			scene(new Scene(window.getSize().x, window.getSize().y, 10.f))
 	{
-		//Inicializa openGl
+		// Init openGl
 		if (!glt::initialize_opengl_extensions())
 		{
 			exit(-1);
 		}
-		//Crea la escena
+
+		// Create the scene
 		scene->create_scene();
 
-		//Creacion de pantalla
+		// Create the window
 		glViewport(0, 0, width, height);
 		
 		window.setFramerateLimit(60);
 		window.setVerticalSyncEnabled(true);
 
 		glClearColor(0.2f, 0.2f, 0.3f, 1.f);
-
-
 	}
+
 	void Game::init()
 	{
 		update();
@@ -41,7 +41,7 @@ namespace example
 		auto time = timer.getElapsedTime();
 		auto deltaTime = time - last_time;
 
-		//Flujo
+		// Gameflow
 		do
 		{
 			time = timer.getElapsedTime();
@@ -59,7 +59,8 @@ namespace example
 			deltaTime = time - last_time;
 			last_time = time;
 
-		} while (window.isOpen());
+		} 
+		while (window.isOpen());
 	}
 
 	void Game::render()
@@ -67,9 +68,10 @@ namespace example
 		scene->render();
 
 	}
+
 	void Game::reset()
 	{
-		//Reseteando
+		
 	}
 
 	void Game::event_handler()

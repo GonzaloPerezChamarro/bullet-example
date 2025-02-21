@@ -1,11 +1,11 @@
 /**
  * @file Sphere.hpp
  * @author Gonzalo Perez Chamarro (Gonzalo1810 Github)
- * @brief Clase que genera una esfera con fisicas
- * @version 0.1
+ * @brief Class that represents a sphere 
+ * @version 1.0
  * @date 2019-05-30
  * 
- * @copyright Copyright (c) 2019
+ * @copyright Copyright (c) 2025
  * 
  */
 
@@ -13,9 +13,7 @@
 #define SPHERE_HEADER
 
 
-#include "Entity.hpp"
-
-
+#include "Entity.h"
 namespace example
 {
 	class Sphere : public Entity
@@ -24,19 +22,16 @@ namespace example
 	public:
 
 		/**
-		 * @brief Constructor de Sphere
-		 * 
-		 * @param scene Escena
-		 * @param pos Posicion inicial
-		 * @param rot Rotacion inicial
-		 * @param type Tipo de rigidbody
+		 * @brief Constructor
+		 * @param scene Pointer to game scene
+		 * @param pos Initial position
+		 * @param rot Initial rotation
+		 * @param type Rigidbody type
 		 */
 		Sphere(Scene * scene, btVector3 pos, btQuaternion rot, Rigidbody::Type type = Rigidbody::Type::STATIC);
 
 		void update(float deltatime) override;
-
 		void reset() override;
-
 	};
 }
 #endif

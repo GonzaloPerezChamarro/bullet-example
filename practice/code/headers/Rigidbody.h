@@ -1,11 +1,11 @@
 /**
  * @file Rigidbody.hpp
  * @author Gonzalo Perez Chamarro (Gonzalo1810 Github)
- * @brief Clase rigidbody. Recoge todos os elementos necesarios para la colision
- * @version 0.1
+ * @brief Class rigidbody. It has all elements to manage collisions
+ * @version 1.0
  * @date 2019-05-30
  * 
- * @copyright Copyright (c) 2019
+ * @copyright Copyright (c) 2025
  * 
  */
 
@@ -21,29 +21,17 @@ namespace example
 {
 	class Rigidbody
 	{
-		/**
-		 * @brief Forma de colision
-		 * 
-		 */
+		/* Collision shape */
 		std::shared_ptr<btCollisionShape> shape;
 
-		/**
-		 * @brief Estado
-		 * 
-		 */
+		/* Motion state */
 		std::shared_ptr<btDefaultMotionState> state;
 
-		/**
-		 * @brief Cuerpo rigido
-		 * 
-		 */
+		/* Rigidbody */
 		std::shared_ptr<btRigidBody> rigidbody;
 
 	public:
-		/**
-		 * @brief Tipo de rigidbody
-		 * 
-		 */
+		/* Rigidbody type */
 		enum Type
 		{
 			STATIC,
@@ -52,42 +40,21 @@ namespace example
 		};
 
 	public:
-		/**
-		 * @brief Constructor de Rigidbody
-		 * 
-		 * @param initial_position 
-		 * @param initial_rotation 
-		 * @param shape 
-		 * @param type 
-		 * @param mass 
-		 * @param inertia 
-		 */
+		/* Constructor */
 		Rigidbody(btVector3 & initial_position, btQuaternion & initial_rotation,
 			const std::shared_ptr<btCollisionShape> & shape, Type type = DYNAMIC,
 			btScalar mass = 1,
 			btVector3 inertia = btVector3(0, 0, 0));
 
-		/**
-		 * @brief Destructor de Rigidbody
-		 * 
-		 */
+		/* Destructor */
 		virtual ~Rigidbody() = default;
 
 	public:
-		/**
-		 * @brief Devuelve rigidbody 
-		 * 
-		 * @return std::shared_ptr<btRigidBody> 
-		 */
+		/* Returns the rigidbody */
 		std::shared_ptr<btRigidBody> get_rigidbody() const { return rigidbody; }
 
-		/**
-		 * @brief Devuelve shape 
-		 * 
-		 * @return std::shared_ptr<btCollisionShape> 
-		 */
+		/* Returns the shape*/
 		std::shared_ptr<btCollisionShape> get_shape() const { return shape; }
-
 	};
 }
 #endif

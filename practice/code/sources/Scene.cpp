@@ -1,16 +1,16 @@
 
 
-#include "Scene.hpp"
+#include "Scene.h"
 
-#include "..\headers\Cube.hpp"
-#include "Sphere.hpp"
-#include "Wall.hpp"
-#include "Key.hpp"
-#include "Door.hpp"
-#include "Catapult.hpp"
-#include "Platform.hpp"
+#include "..\headers\Cube.h"
+#include "Sphere.h"
+#include "Wall.h"
+#include "Key.h"
+#include "Door.h"
+#include "Catapult.h"
+#include "Platform.h"
 
-#include "Game.hpp"
+#include "Game.h"
 
 namespace example
 {
@@ -20,7 +20,6 @@ namespace example
 		camera(new glt::Camera(20.f, 1.f, 50.f, 1.f)), light(new glt::Light)
 	{
 		have_to_reset = false;
-
 	}
 
 	Scene::~Scene()
@@ -49,7 +48,6 @@ namespace example
 		input(deltaTime);
 
 		if (have_to_reset) reset();
-
 	}
 
 	void Scene::render()
@@ -59,7 +57,6 @@ namespace example
 
 	void Scene::create_scene()
 	{
-
 		renderer->add("camera", camera);
 		renderer->add("light", light); 
 
@@ -68,9 +65,9 @@ namespace example
 
 		renderer->get_active_camera()->set_aspect_ratio(float(width) / height);
 
-		//LATERALES
+		// SIDES
 		{
-			//Derecha
+			// RIGHT
 			std::shared_ptr<Cube> cubeDer(new Cube(this, btVector3(9.f, -2.f, 0.f), btQuaternion::getIdentity()));
 			entities_map["cubeDer"] = cubeDer;
 
@@ -89,7 +86,7 @@ namespace example
 			std::shared_ptr<Cube> cubeDer1B(new Cube(this, btVector3(10.f, -2.f, -2.f), btQuaternion::getIdentity()));
 			entities_map["cubeDer1B"] = cubeDer1B;
 
-			//Izquierda
+			// LEFT
 			std::shared_ptr<Cube> cubeIzq(new Cube(this, btVector3(-5.f, -2.f, 0.f), btQuaternion::getIdentity()));
 			entities_map["cubeIzq"] = cubeIzq;
 
@@ -99,9 +96,9 @@ namespace example
 			std::shared_ptr<Cube> cubeIzqB(new Cube(this, btVector3(-5.f, -2.f, -2.f), btQuaternion::getIdentity()));
 			entities_map["cubeIzqB"] = cubeIzqB;
 		}
-		//CENTRO
+		// CENTER
 		{
-			//Centro 1
+			// CENTER 1
 			std::shared_ptr<Cube> cubeCentro(new Cube(this, btVector3(0.f, -2.f, 0.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentro"] = cubeCentro;
 
@@ -117,7 +114,7 @@ namespace example
 			std::shared_ptr<Cube> cubeCentroD(new Cube(this, btVector3(0.f, -2.f, -3.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentroD"] = cubeCentroD;
 
-			//Centro 2
+			// CENTER 2
 			std::shared_ptr<Cube> cubeCentro1(new Cube(this, btVector3(1.f, -2.f, 0.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentro1"] = cubeCentro1;
 
@@ -133,8 +130,7 @@ namespace example
 			std::shared_ptr<Cube> cubeCentro1D(new Cube(this, btVector3(1.f, -2.f, -3.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentro1D"] = cubeCentro1D;
 
-			//Centro3
-
+			// CENTER 3
 			std::shared_ptr<Cube> cubeCentro3(new Cube(this, btVector3(2.f, -2.f, 0.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentro3"] = cubeCentro3;
 
@@ -150,7 +146,7 @@ namespace example
 			std::shared_ptr<Cube> cubeCentro3D(new Cube(this, btVector3(2.f, -2.f, -3.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentro3D"] = cubeCentro3D;
 
-			//Centro 4
+			// CENTER 4
 			std::shared_ptr<Cube> cubeCentro4(new Cube(this, btVector3(3.f, -2.f, 0.f), btQuaternion::getIdentity()));
 			entities_map["cubeCentro4"] = cubeCentro4;
 
@@ -167,11 +163,11 @@ namespace example
 			entities_map["cubeCentro4D"] = cubeCentro4D;
 		}
 
-		//MURO A TIRAR
+		// WALL TO HIT
 		std::shared_ptr<Wall> wall(new Wall(this, btVector3(-5.5f, 0.f, -1.f), btQuaternion::getIdentity(), Rigidbody::Type::DYNAMIC));
 		entities_map["wall"] = wall;
 
-		//MUROS
+		// OTHER WALLS
 		{
 			std::shared_ptr<Wall> wallIzq(new Wall(this, btVector3(1.f, 0.f, 1.f), btQuaternion::getIdentity(), Rigidbody::Type::STATIC));
 			entities_map["wallIzq"] = wallIzq;
@@ -220,16 +216,18 @@ namespace example
 			entities_map["c5A"] = c5A;
 		}
 
-		//PUERTA Y LLAVE
+		// DOOR AND KEY
 		std::shared_ptr<Door> door(new Door(this, btVector3(1.f, 0.f, -1.f), btQuaternion::getIdentity()));
 		entities_map["door"] = door;
 
 		std::shared_ptr<Key> key(new Key(this, btVector3(2.1f, -0.3, -3.f), btQuaternion::getIdentity(), *door));
 		entities_map["key"] = key;
 
+		// CATAPULT
 		std::shared_ptr<Catapult> catapult(new Catapult(this, btVector3(9.f, 0.f, 0.f), btQuaternion::getIdentity()));
 		entities_map["catapult"] = catapult;
 
+		// PLATFORM
 		std::shared_ptr<Platform> platform(new Platform(this, btVector3(7, -1.20f, 0), btQuaternion::getIdentity(), btVector3(5, -1.20f, 0)));
 		entities_map["platform"] = platform;
 	}
@@ -252,7 +250,7 @@ namespace example
 
 	void Scene::input(float deltaTime)
 	{
-		//Movimiento de la camara
+		// Camera movement
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
 			renderer->get("camera")->translate(glt::Vector3(0.f, 0.f, -5.f) * deltaTime);
@@ -271,7 +269,7 @@ namespace example
 			renderer->get("camera")->translate(glt::Vector3(-5.f, 0.f, 0.f) * deltaTime);
 		}
 
-		//Altura de la camara
+		// Camera height
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
 		{
 			renderer->get("camera")->translate(glt::Vector3(0.f, 5.f, 0.f) * deltaTime);
@@ -281,14 +279,14 @@ namespace example
 			renderer->get("camera")->translate(glt::Vector3(0.f, -5.f, 0.f) * deltaTime);
 		}
 
-		//Rotacion de la camara
+		// Camera rotation
 		static float rotation = 0;
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)) // derecha
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)) // right
 		{
 			rotation += deltaTime * 5;
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) // izquierda
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) // left
 		{
 			rotation -= deltaTime * 5;
 		}

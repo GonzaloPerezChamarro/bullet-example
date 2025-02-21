@@ -1,11 +1,11 @@
 /**
  * @file Entity.hpp
  * @author Gonzalo Perez Chamarro (Gonzalo1810 Github)
- * @brief Clase base de Entidad. Otros elementos de escena deben heredar
- * @version 0.1
+ * @brief Base class of an entity. Other scene elements must inherit from it
+ * @version 1.0
  * @date 2019-05-30
  * 
- * @copyright Copyright (c) 2019
+ * @copyright Copyright (c) 2025
  * 
  */
 
@@ -17,16 +17,13 @@
 #include <string>
 #include <iostream>
 
-
-#include "Scene.hpp"
-#include "Rigidbody.hpp"
-#include "Sensor.hpp"
+#include "Scene.h"
+#include "Rigidbody.h"
+#include "Sensor.h"
 #include "SFML/Graphics.hpp"
 
 #include <btBulletDynamicsCommon.h>
 #include <Model_Obj.hpp>
-
-
 
 using namespace std;
 
@@ -35,60 +32,38 @@ namespace example
 	class Entity
 	{
 	protected:
-		/**
-		 * @brief Puntero a la escena principal
-		 * 
-		 */
-		Scene * scene;
+		/* Pointer to game scene */
+		Scene* scene;
 
-		/**
-		 * @brief Posicion inicial
-		 * 
-		 */
+		/* Initial position */
 		btVector3 initial_position;
 
-		/**
-		 * @brief Transform de la entidad
-		 * 
-		 */
+		/* Transform */
 		btTransform transform;
 
-		/**
-		 * @brief Estructura que recoge los modelos, su rigidbody y su escala
-		 * 
-		 */
+		/* Struct that group a model with its rigidbody and scale */
 		struct Model_Group
 		{
 			float scale = 1.f;
 			std::shared_ptr<glt::Model> mesh;
 			std::shared_ptr<Rigidbody> body;
 		};
-		/**
-		 * @brief Mapa de estructuras 
-		 * 
-		 */
+
+		/* Map of model groups */
 		std::map<std::string, Model_Group> models;
 
-		/**
-		 * @brief Mapa de sensores
-		 * 
-		 */
+		/* Map of sensors */
 		std::map<std::string, std::shared_ptr<Sensor>> sensors;
 
-		/**
-		 * @brief Mapa de constraint
-		 * 
-		 */
+		/* Map of contraints */
 		std::map<std::string, std::shared_ptr<btHingeConstraint>> joints;
-
 
 	public:
 		/**
-		 * @brief Constructor de Entity
-		 * 
-		 * @param scene 
-		 * @param pos Posicion inicial
-		 * @param rot Rotacion inicial
+		 * @brief Constructor
+		 * @param scene Pointer to game scene
+		 * @param pos Initial position
+		 * @param rot Initial rotation
 		 */
 		Entity(Scene * scene, btVector3 pos, btQuaternion rot)
 			:scene(scene), initial_position(pos)
@@ -96,38 +71,29 @@ namespace example
 			initial_position = pos;
 		}
 
-		/**
-		 * @brief Destructor de Entity
-		 * 
-		 */
+		/* Destructor */
 		virtual ~Entity() {}
 
 	public:
 		/**
-		 * @brief Actualiza el estado de la entidad
-		 * 
+		 * @brief Updates the state of the entity
 		 * @param deltatime 
 		 */
 		virtual void update(float deltatime);
 
-		/**
-		 * @brief Resetea la entidad a su estadoo inicial
-		 * 
-		 */
+		/* Virtual. Reset the entity to its initial state */
 		virtual void reset() = 0;
 
 		/**
-		 * @brief Gestiona las entradas de teclado o raton
-		 * 
+		 * @brief Manages the inputs with keyboard and mouse
 		 * @param deltatime 
 		 */
 		virtual void input(float deltatime) {}
 
 	public:
 		/**
-		 * @brief Devuelve rigidbody 
-		 * 
-		 * @param name 
+		 * @brief Returns a rigidbody
+		 * @param name of the model
 		 * @return std::shared_ptr<Rigidbody> 
 		 */
 		std::shared_ptr<Rigidbody> get_rigidbody(const std::string & name)
@@ -136,9 +102,8 @@ namespace example
 		}
 
 		/**
-		 * @brief Devuelve mesh 
-		 * 
-		 * @param name 
+		 * @brief Returns a mesh
+		 * @param name of the model
 		 * @return std::shared_ptr<glt::Model> 
 		 */
 		std::shared_ptr<glt::Model> get_mesh(const std::string & name)
@@ -147,10 +112,9 @@ namespace example
 		}
 
 		/**
-		 * @brief Modifica el valor de model scale 
-		 * 
-		 * @param name 
-		 * @param new_scale 
+		 * @brief Modifies the scale of a model
+		 * @param name of the model
+		 * @param new_scale new scale
 		 */
 		void set_model_scale(const std::string & name, const float new_scale) 
 		{
@@ -158,56 +122,38 @@ namespace example
 			models[name].scale = new_scale;
 		}
 
-		/**
-		 * @brief Devuelve current position 
-		 * 
-		 * @return const btVector3& 
-		 */
+		/* Returns the current position of the entity */
 		const btVector3 & get_current_position() const{ return transform.getOrigin(); }
 
-		/**
-		 * @brief Devuelve scene 
-		 * 
-		 * @return Scene* 
-		 */
+		/* Returns the game scene */
 		Scene * get_scene() const { return scene; }
 
 		/**
-		 * @brief Añade un nuevo modelo 
-		 * 
-		 * @param name 
-		 * @param rb 
-		 * @param path 
-		 * @param scale 
+		 * @brief Adds a new model
+		 * @param name of the model
+		 * @param rb rigidbody
+		 * @param path to the model
+		 * @param scale of the model
 		 */
 		void add_model(const std::string & name, std::shared_ptr<Rigidbody> & rb, const std::string & path, float scale = 1.f);
 
 		/**
-		 * @brief Añade un nuevo sensor
-		 * 
-		 * @param name 
-		 * @param sensor 
+		 * @brief Adds a new sensor
+		 * @param name of the model
+		 * @param sensor pointer to the sensor
 		 */
 		void add_sensor(const std::string & name, std::shared_ptr<Sensor> & sensor);
 
 		/**
-		 * @brief Añade un nuevo constraint
-		 * 
-		 * @param name 
-		 * @param joint 
+		 * @brief Adds a new constraint
+		 * @param name of the model
+		 * @param joint constraint
 		 */
 		void add_joint(const std::string & name, std::shared_ptr<btHingeConstraint> & joint);
 
-		/**
-		 * @brief Indica si los dos vectores son iguales con una tolerancia
-		 * 
-		 * @param vec1 
-		 * @param vec2 
-		 * @param tolerance 
-		 * @return true 
-		 * @return false 
-		 */
-		bool near_equals(btVector3 vec1, btVector3 vec2, float tolerance)
+		// TODO: move it from here
+		/* Returns if two vectors are equals with a tolerance */
+		static bool near_equals(btVector3 vec1, btVector3 vec2, float tolerance)
 		{
 			float offset = abs(vec1.getX() - vec2.getX()) + abs(vec1.getY() - vec2.getY()) + abs(vec1.getZ() - vec2.getZ());
 			return offset < tolerance;

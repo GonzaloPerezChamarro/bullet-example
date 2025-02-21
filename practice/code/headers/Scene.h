@@ -1,11 +1,11 @@
 /**
  * @file Scene.hpp
  * @author Gonzalo Perez Chamarro (Gonzalo1810 Github)
- * @brief Clase escena
- * @version 0.1
+ * @brief Class of a game scene
+ * @version 1.0
  * @date 2019-05-30
  * 
- * @copyright Copyright (c) 2019
+ * @copyright Copyright (c) 2025
  * 
  */
 
@@ -21,7 +21,7 @@
 #include <Render_Node.hpp>
 #include <Light.hpp>
 
-#include "World.hpp"
+#include "World.h"
 
 using namespace std;
 
